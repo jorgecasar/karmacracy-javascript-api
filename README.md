@@ -3,6 +3,8 @@ Karmacrazy API Javascript
 
 A Javascript wrapper for Karmacracy API. You can check all documentation here: http://karmacracy.com/sections/developers/documentation/api-documentation-index.php
 
+If you want to try the tool, here you are an invitation: http://kcy.me/n6lp
+
 # Initialize
 
 * You can request your API_key here: http://karmacracy.com/sections/developers/key/play-with-api.php
