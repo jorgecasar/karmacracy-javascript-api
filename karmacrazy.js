@@ -14,7 +14,7 @@ function serializeObject(object) {
 		pairs.push(prop + '=' + object[prop]);
 	}
 	return pairs.join('&');
-};
+}
 
 function Karmacrazy(appkey, lang){
 	var _appkey = appkey;
@@ -77,7 +77,14 @@ function Karmacrazy(appkey, lang){
 			case 'rank':
 				data = data.user;
 				break;
-			case 'stats:evolution': case 'stats:relevance':
+			case 'stats:evolution':
+				data = data.stats;
+				data.links_evolution = JSON.parse(data.links_evolution);
+				data.koi_evolution = JSON.parse(data.koi_evolution);
+				data.clicks_evolution = JSON.parse(data.clicks_evolution);
+				data.rank_evolution = JSON.parse(data.rank_evolution);
+				break;
+			case 'stats:relevance':
 				data = data.stats;
 				break;
 		}
@@ -87,7 +94,7 @@ function Karmacrazy(appkey, lang){
 		var url = _baseUrl;
 		params = params || {};
 		params.u = params.u || this.userName;
-		params.k = this.userKey;
+		params.k = params.k || this.userKey;
 		params.appkey = _appkey;
 
 		switch(method){
@@ -143,8 +150,14 @@ function Karmacrazy(appkey, lang){
 				params = serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
-			case 'networks': case 'domains': case 'rank': case 'share':
+			case 'networks': case 'domains': case 'rank':
 				url += method + "/";
+				params = serializeObject(params);
+				if( params !== '' ) url += '?' + params;
+				break;
+			case 'share':
+				url += method + "/";
+				params.txt = encodeURIComponent(params.txt);
 				params = serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
@@ -168,14 +181,14 @@ function Karmacrazy(appkey, lang){
 		return this.lang;
 	};
 	this.setUserKey = function(userKey){
-		this.userKey = k;
+		this.userKey = userKey;
 		return this.userKey;
 	};
 	this.setUserName = function(userName){
 		this.userName = userName;
 		return this.userName;
 	};
-	this.serUser = function(userName, userKey){
+	this.setUser = function(userName, userKey){
 		this.setUserName(userName);
 		this.setUserKey(userKey);
 	};
