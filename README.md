@@ -1,21 +1,21 @@
 Karmacracy API Javascript
 =========================
 
-A Javascript wrapper for Karmacracy API. You can check all documentation here: http://karmacracy.com/sections/developers/documentation/api-documentation-index.php
+A Javascript wrapper for Karmacracy API. You can check the [official documentation](http://karmacracy.com/sections/developers/documentation/api-documentation-index.php)
 
-If you want to try the tool, here you are an invitation: http://kcy.me/n6lp
+If you want to try the tool, here you are an [invitation](http://kcy.me/n6lp)
 
 # Initialize
-Before start to develop an app or web using Karmacracy you need an API_key (http://karmacracy.com/sections/developers/key/play-with-api.php). 
+Before start to develop an app or web using Karmacracy you need an [API_key](http://karmacracy.com/sections/developers/key/play-with-api.php). 
 
 ## Runing Karmacracy API in the Client
 ```Javascript
 var kcy = new Karmacracy(API_key, 'es');
 ```
 ## Runing Karmacracy API in the Server (NodeJS)
-You need to add the dependence in the pacjage.json. The module page in npm is: https://npmjs.org/package/karmacracy-javascript-api
+You need to add the dependence in the pacjage.json. Check the [NPM module page](https://npmjs.org/package/karmacracy-javascript-api)
 ```JSON
-dependences: {
+"dependences": {
 	"karmacracy-javascript-api": "*"
 }
 ```
