@@ -13,8 +13,15 @@ Before start to develop an app or web using Karmacracy you need an API_key (http
 var kcy = new Karmacracy(API_key, 'es');
 ```
 ## Runing Karmacracy API in the Server (NodeJS)
+You need to add the dependence in the pacjage.json. The module page in npm is: https://npmjs.org/package/karmacracy-javascript-api
+```JSON
+dependences: {
+	"karmacracy-javascript-api": "*"
+}
+```
+And you can use it as module:
 ```Javascript
-var karmacracy = require('karmacracy');
+var karmacracy = require('karmacracy-javascript-api');
 var kcy = new karmacracy(API_key, 'es');
 ```
 # Setup the user (client and server)
