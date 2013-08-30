@@ -94,13 +94,13 @@ kcy.getUserInfo({u: 'jorgecasar'}, onError, onSuccess);
 If the user does't exist you get an error 404. In the other case you get an object with the user info:
 ```JSON
 {
-	username: "jorgecasar",
-	kcyrank: "40",
-	img: "http://gravatar.com/avatar/b374f3bd05b1db4a974585ba57661815/?s=85",
-	level: "3",
-	date_signed: "2012-10-28 17:20:32",
-	stats: [],
-	kcys: []
+	"username": "jorgecasar",
+	"kcyrank": "40",
+	"img": "http://gravatar.com/avatar/b374f3bd05b1db4a974585ba57661815/?s=85",
+	"level": "3",
+	"date_signed": "2012-10-28 17:20:32",
+	"stats": [],
+	"kcys": []
 }
 ```
 
@@ -113,13 +113,13 @@ kcy.getNuts({u: 'jorgecasar'}, onError, onSuccess);
 If all was right you get an array like this:
 ```JSON
 [{
-	id: "140",
-	name: "Creator 10",
-	imageSmall: "http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png",
-	imageBig: "http://karmacracy.com/img-nuts/3d1c89f69382216508cdeb2a685a85336cd9d651.png",
-	level: "1",
-	dateReceivedOrLast: "2013-06-24",
-	number: "1"
+	"id": "140",
+	"name": "Creator 10",
+	"imageSmall": "http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png",
+	"imageBig": "http://karmacracy.com/img-nuts/3d1c89f69382216508cdeb2a685a85336cd9d651.png",
+	"level": "1",
+	"dateReceivedOrLast": "2013-06-24",
+	"number": "1"
 },{
 	…
 }]
@@ -140,19 +140,19 @@ kcy.getNut({
 If all was right you get an object like this:
 ```JSON
 {
-	id: "140",
-	name: "Creator 10",
-	dateSince: "2012-09-03",
-	history: "This nut was proposed by <a href=\"/kcy\">kcy</a>. It was created on 03 sep 2012.",
-	imageSmall: "http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png",
-	imageBig: "http://karmacracy.com/img-nuts/3d1c89f69382216508cdeb2a685a85336cd9d651.png",
-	description: "Life is a game and so is Karmacracy. We want you to keep having fun with us so we give you this Nut because you have shared 10 new kcys (new links in Karmacracy). Use this Cinexin to rekindle the moment.",
-	flg_type: "H",
-	level: "1",
-	nrKcys: "0",
-	nrMyKcys: "0",
-	nrHumans: "2707",
-	humans: [{…}]
+	"id": "140",
+	"name": "Creator 10",
+	"dateSince": "2012-09-03",
+	"history": "This nut was proposed by <a href=\"/kcy\">kcy</a>. It was created on 03 sep 2012.",
+	"imageSmall": "http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png",
+	"imageBig": "http://karmacracy.com/img-nuts/3d1c89f69382216508cdeb2a685a85336cd9d651.png",
+	"description": "Life is a game and so is Karmacracy. We want you to keep having fun with us so we give you this Nut because you have shared 10 new kcys (new links in Karmacracy). Use this Cinexin to rekindle the moment.",
+	"flg_type": "H",
+	"level": "1",
+	"nrKcys": "0",
+	"nrMyKcys": "0",
+	"nrHumans": "2707",
+	"humans": [{…}]
 }
 ```
 
@@ -165,10 +165,10 @@ kcy.getNetworks({ u: 'jorgecasar' }, onError, onSuccess);
 If all was right you get an array like this:
 ```JSON
 [{
-	connectid: "connectID",
-	hidden: "0",
-	name: "Jorge del Casar",
-	type: "FB"
+	"connectid": "connectID",
+	"hidden": "0",
+	"name": "Jorge del Casar",
+	"type": "FB"
 },{
 	…
 }}
@@ -182,9 +182,9 @@ kcy.getFacebookPages(onError, onSuccess);
 If all was right you get an array like this:
 ```JSON
 [{
-	access_token: "ACCESS_TOKEN",
-	id: "FACEBOOK_PAGE_ID",
-	name: "Jorge del Casar - Desarrollo Frontend"
+	"access_token": "ACCESS_TOKEN",
+	"id": "FACEBOOK_PAGE_ID",
+	"name": "Jorge del Casar - Desarrollo Frontend"
 },{
 	…
 }]
@@ -198,10 +198,10 @@ kcy.getDomains({u:'jorgecasar'}, onError, onSuccess);
 If all was right you get an array like this:
 ```JSON
 [{
-	clicks: "246",
-	domain: "developer.blackberry.com",
-	numPersonas: "5",
-	rank: "1"
+	"clicks": "246",
+	"domain": "developer.blackberry.com",
+	"numPersonas": "5",
+	"rank": "1"
 },{
 	…
 }]
@@ -215,17 +215,17 @@ kcy.getKcys({u:'jorgecasar'}, onError, onSuccess);
 If all was right you get an array like this:
 ```JSON
 [{
-	id: "qt36",
-	url: "http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html",
-	title: "Socializando enlaces y contenidos con Karmacracy",
-	description: "&nbsp;Entrevistamos a Álex Dolara, fundador de Karmacracy, una startup española, dedicada a compartir contenidos y acortar enlaces con una capa social.",
-	imgUser: "http://karmacracy.com/img/kcylocke.png",
-	image: "http://images.eldiario.es/turing/Alex-Dolara_EDIIMA20130828_0074_6.jpg",
-	time: "2013-08-29 07:32:21",
-	user: "agileando",
-	clicks: "205",
-	weight: "205",
-	people: […]
+	"id": "qt36",
+	"url": "http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html",
+	"title": "Socializando enlaces y contenidos con Karmacracy",
+	"description": "&nbsp;Entrevistamos a Álex Dolara, fundador de Karmacracy, una startup española, dedicada a compartir contenidos y acortar enlaces con una capa social.",
+	"imgUser": "http://karmacracy.com/img/kcylocke.png",
+	"image": "http://images.eldiario.es/turing/Alex-Dolara_EDIIMA20130828_0074_6.jpg",
+	"time": "2013-08-29 07:32:21",
+	"user": "agileando",
+	"clicks": "205",
+	"weight": "205",
+	"people": […]
 },{
 	…
 }]
@@ -239,14 +239,14 @@ kcy.getKcys({kcy:'qt36'}, onError, onSuccess);
 If all was right you get an object like this:
 ```JSON
 {
-	shorturl: "qt36",
-	url: "http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html",
-	date: "2013-08-29 07:32:21",
-	kcyedhumans: {…},
-	kclicks: null,
-	mykclicks: "17",
-	mykcytype: "2",
-	traffic: {…}
+	"shorturl": "qt36",
+	"url": "http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html",
+	"date": "2013-08-29 07:32:21",
+	"kcyedhumans": {…},
+	"kclicks": null,
+	"mykclicks": "17",
+	"mykcytype": "2",
+	"traffic": {…}
 }
 ```
 
@@ -263,10 +263,10 @@ kcy.getRank({
 If all was right you get an array like this:
 ```JSON
 [{
-	username: "elandroidelibre",
-	kcyrank: "1",
-	img: "http://karmacracy.com/img-users/114.jpg",
-	totalawards: "9384"
+	"username": "elandroidelibre",
+	"kcyrank": "1",
+	"img": "http://karmacracy.com/img-users/114.jpg",
+	"totalawards": "9384"
 },{
 	…
 }]
@@ -281,17 +281,17 @@ If all was right you get an object like this:
 ```JSON
 {
 
-	links_evolution: {…},
-	koi_evolution: {…},
-	rank_evolution: {…},
-	clicks_evolution: {…},
-	virgin_vs_burned: {
-		virgin: "128",
-		total: "154",
-		burned: 26
+	"links_evolution": {…},
+	"koi_evolution": {…},
+	"rank_evolution": {…},
+	"clicks_evolution": {…},
+	"virgin_vs_burned": {
+		"virgin": "128",
+		"total": "154",
+		"burned": 26
 	},
-	kclicks: "4357.64",
-	kcys: "118"
+	"kclicks": "4357.64",
+	"kcys": "118"
 }
 ```
 
@@ -303,12 +303,12 @@ kcy.getStatsRelevance(onError, onSuccess);
 If all was right you get an object like this:
 ```JSON
 {
-	hours: {…},
-	kclicks: "4357.64",
-	kcys: "118",
-	koi: 36.929152542373,
-	social: {…},
-	week: {…}
+	"hours": {…},
+	"kclicks": "4357.64",
+	"kcys": "118",
+	"koi": 36.929152542373,
+	"social": {…},
+	"week": {…}
 }
 ```
 
@@ -320,11 +320,11 @@ kcy.shortLink({url: 'http://karmacrazy.com'}, onError, onSuccess);
 If all was right you get an object like this:
 ```JSON
 {
-	long_url: "http://karmacracy.com",
-	url: "http://kcy.me/nlr8",
-	hash: null,
-	global_hash: null,
-	new_hash: 0
+	"long_url": "http://karmacracy.com",
+	"url": "http://kcy.me/nlr8",
+	"hash": null,
+	"global_hash": null,
+	"new_hash": 0
 }
 ```
 
@@ -341,5 +341,5 @@ kcy.shortLink({
 ```
 If all was right you get an object like this:
 ```JSON
-{result: "0"} 
+{"result": "0"} 
 ```
