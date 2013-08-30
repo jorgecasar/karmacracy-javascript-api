@@ -20,9 +20,9 @@
         <p class="header">A Javascript wrapper for Karmacracy API.</p>
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/jorgecasar/Karmacrazy-Javascript-API/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/jorgecasar/Karmacrazy-Javascript-API/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/jorgecasar/Karmacrazy-Javascript-API">View On GitHub</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/jorgecasar/karmacracy-javascript-api/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/jorgecasar/karmacracy-javascript-api/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/jorgecasar/karmacracy-javascript-api">View On GitHub</a></li>
         </ul>
 
         <p class="header">This project is maintained by <a class="header name" href="https://github.com/jorgecasar">jorgecasar</a></p>
@@ -31,7 +31,7 @@
       </header>
       <section>
         <h1>
-<a name="karmacrazy-api-javascript" class="anchor" href="#karmacrazy-api-javascript"><span class="octicon octicon-link"></span></a>Karmacrazy API Javascript</h1>
+<a name="karmacracy-api-javascript" class="anchor" href="#karmacracy-api-javascript"><span class="octicon octicon-link"></span></a>Karmacracy API Javascript</h1>
 
 <p>A Javascript wrapper for Karmacracy API. You can check all documentation here: <a href="http://karmacracy.com/sections/developers/documentation/api-documentation-index.php">http://karmacracy.com/sections/developers/documentation/api-documentation-index.php</a></p>
 
@@ -40,25 +40,25 @@
 <h1>
 <a name="initialize" class="anchor" href="#initialize"><span class="octicon octicon-link"></span></a>Initialize</h1>
 
-<p>Before start to develop an app or web using Karmacrazy you need an API_key (<a href="http://karmacracy.com/sections/developers/key/play-with-api.php">http://karmacracy.com/sections/developers/key/play-with-api.php</a>). </p>
+<p>Before start to develop an app or web using Karmacracy you need an API_key (<a href="http://karmacracy.com/sections/developers/key/play-with-api.php">http://karmacracy.com/sections/developers/key/play-with-api.php</a>). </p>
 
 <h2>
-<a name="runing-karmacrazy-api-in-the-client" class="anchor" href="#runing-karmacrazy-api-in-the-client"><span class="octicon octicon-link"></span></a>Runing Karmacrazy API in the Client</h2>
+<a name="runing-karmacracy-api-in-the-client" class="anchor" href="#runing-karmacracy-api-in-the-client"><span class="octicon octicon-link"></span></a>Runing Karmacracy API in the Client</h2>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Karmacrazy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Karmacracy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
 </pre></div>
 
 <h2>
-<a name="runing-karmacrazy-api-in-the-server-nodejs" class="anchor" href="#runing-karmacrazy-api-in-the-server-nodejs"><span class="octicon octicon-link"></span></a>Runing Karmacrazy API in the Server (NodeJS)</h2>
+<a name="runing-karmacracy-api-in-the-server-nodejs" class="anchor" href="#runing-karmacracy-api-in-the-server-nodejs"><span class="octicon octicon-link"></span></a>Runing Karmacracy API in the Server (NodeJS)</h2>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">karmacrazy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'karmacrazy'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">karmacrazy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">karmacracy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'karmacracy'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">karmacracy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
 </pre></div>
 
 <h1>
 <a name="setup-the-user-client-and-server" class="anchor" href="#setup-the-user-client-and-server"><span class="octicon octicon-link"></span></a>Setup the user (client and server)</h1>
 
-<p>The first thing the user of your app will need to give you the userName and userKey (The user can find it in Preferences &gt; Conexions at karmacrazy).</p>
+<p>The first thing the user of your app will need to give you the userName and userKey (The user can find it in Preferences &gt; Conexions at karmacracy).</p>
 
 <div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserName</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">);</span>
 <span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserKey</span><span class="p">(</span><span class="s1">'userKey'</span><span class="p">);</span>
@@ -413,7 +413,7 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 
 <p>You can short a link using kcy.me, the Karmacracy.com shortener.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">shortLink</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="s1">'http://karmacrazy.com'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">shortLink</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="s1">'http://karmacracy.com'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an object like this:</p>
