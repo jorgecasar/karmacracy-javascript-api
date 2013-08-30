@@ -6,28 +6,29 @@ A Javascript wrapper for Karmacracy API. You can check all documentation here: h
 If you want to try the tool, here you are an invitation: http://kcy.me/n6lp
 
 # Initialize
+Before start to develop an app or web using Karmacrazy you need an API_key (http://karmacracy.com/sections/developers/key/play-with-api.php). 
 
-* You can request your API_key here: http://karmacracy.com/sections/developers/key/play-with-api.php
+## Runing Karmacrazy API in the Client
 ```Javascript
 var kcy = new Karmacrazy(API_key, 'es');
 ```
-* Request the user his userName in Karmacrazy
+## Runing Karmacrazy API in the Server (NodeJS)
 ```Javascript
-kcy.setUserName(userName);
+var karmacrazy = require('karmacrazy');
+var kcy = new karmacrazy(API_key, 'es');
 ```
-* Ask for his userKey. He can find it in Preferences > Conexions at karmacrazy.
+# Setup the user (client and server)
+The first thing the user of your app will need to give you the userName and userKey (The user can find it in Preferences > Conexions at karmacrazy).
 ```Javascript
-kcy.setUserKey(userKey);
+kcy.setUserName('userName');
+kcy.setUserKey('userKey');
 ```
-* Call 
+If you want to do this in one simple line
+```Javascript
+kcy.setUser('userName', 'userKey');
+```
+
 # Methods
-
-## Constructor
-
-You can create a new Karmacrazy object and initialize with 2 params:
-* API_key: Your developer API key
-* lang: Karmacrazy support 2 languages: English (en) and Spanish (es). Default value 'en'.
-
 ## setLang
 You can change the lang of the response using this function. The response of following request will be in the new language
 ```Javascript
