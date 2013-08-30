@@ -3,11 +3,25 @@
   "version": "0.0.1",
   "description": "A Javascript wrapper for Karmacracy API.",
   "homepage": "http://jorgecasar.github.io/Karmacrazy-Javascript-API/",
-  "author": {
-    "name": "Jorge del Casar",
-    "site": "http://twitter.com/jorgecasar"
+  "author": "Jorge del Casar",
+  "dependencies": {
+    "xmlhttprequest": "*"
+  },
+  "readmeFilename": "README.md",
+  "gitHead": "0390f9d4ba05a4996262e3683a505918058fdc20",
+  "main": "karmacrazy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorgecasar/Karmacrazy-Javascript-API.git"
   },
   "dependencies": {
     "xmlhttprequest": "*"
   }
+  "keywords": [
+    "Karmacrazy"
+  ],
+  "license": "MIT"
 }
