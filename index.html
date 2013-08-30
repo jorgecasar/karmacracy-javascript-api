@@ -20,9 +20,9 @@
         <p class="header">A Javascript wrapper for Karmacracy API.</p>
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/jorgecasar/Karmacrazy-API-Javascript/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/jorgecasar/Karmacrazy-API-Javascript/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/jorgecasar/Karmacrazy-API-Javascript">View On GitHub</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/jorgecasar/Karmacrazy-Javascript-API/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/jorgecasar/Karmacrazy-Javascript-API/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/jorgecasar/Karmacrazy-Javascript-API">View On GitHub</a></li>
         </ul>
 
         <p class="header">This project is maintained by <a class="header name" href="https://github.com/jorgecasar">jorgecasar</a></p>
@@ -40,33 +40,39 @@
 <h1>
 <a name="initialize" class="anchor" href="#initialize"><span class="octicon octicon-link"></span></a>Initialize</h1>
 
-<ul>
-<li>You can request your API_key here: <a href="http://karmacracy.com/sections/developers/key/play-with-api.php">http://karmacracy.com/sections/developers/key/play-with-api.php</a>
-<code>Javascript
-var kcy = new Karmacrazy(API_key, 'es');
-</code>
-</li>
-<li>Request the user his userName in Karmacrazy
-<code>Javascript
-kcy.setUserName(userName);
-</code>
-</li>
-<li>Ask for his userKey. He can find it in Preferences &gt; Conexions at karmacrazy.
-<code>Javascript
-kcy.setUserKey(userKey);
-</code>
-</li>
-<li>Call 
-# Methods</li>
-</ul><h2>
-<a name="constructor" class="anchor" href="#constructor"><span class="octicon octicon-link"></span></a>Constructor</h2>
+<p>Before start to develop an app or web using Karmacrazy you need an API_key (<a href="http://karmacracy.com/sections/developers/key/play-with-api.php">http://karmacracy.com/sections/developers/key/play-with-api.php</a>). </p>
 
-<p>You can create a new Karmacrazy object and initialize with 2 params:</p>
+<h2>
+<a name="runing-karmacrazy-api-in-the-client" class="anchor" href="#runing-karmacrazy-api-in-the-client"><span class="octicon octicon-link"></span></a>Runing Karmacrazy API in the Client</h2>
 
-<ul>
-<li>API_key: Your developer API key</li>
-<li>lang: Karmacrazy support 2 languages: English (en) and Spanish (es). Default value 'en'.</li>
-</ul><h2>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Karmacrazy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
+</pre></div>
+
+<h2>
+<a name="runing-karmacrazy-api-in-the-server-nodejs" class="anchor" href="#runing-karmacrazy-api-in-the-server-nodejs"><span class="octicon octicon-link"></span></a>Runing Karmacrazy API in the Server (NodeJS)</h2>
+
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">karmacrazy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'karmacrazy'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">karmacrazy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
+</pre></div>
+
+<h1>
+<a name="setup-the-user-client-and-server" class="anchor" href="#setup-the-user-client-and-server"><span class="octicon octicon-link"></span></a>Setup the user (client and server)</h1>
+
+<p>The first thing the user of your app will need to give you the userName and userKey (The user can find it in Preferences &gt; Conexions at karmacrazy).</p>
+
+<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserName</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">);</span>
+<span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserKey</span><span class="p">(</span><span class="s1">'userKey'</span><span class="p">);</span>
+</pre></div>
+
+<p>If you want to do this in one simple line</p>
+
+<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">,</span> <span class="s1">'userKey'</span><span class="p">);</span>
+</pre></div>
+
+<h1>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h1>
+
+<h2>
 <a name="setlang" class="anchor" href="#setlang"><span class="octicon octicon-link"></span></a>setLang</h2>
 
 <p>You can change the lang of the response using this function. The response of following request will be in the new language</p>
