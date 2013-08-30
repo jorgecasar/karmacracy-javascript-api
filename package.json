@@ -1,0 +1,13 @@
+{
+  "name": "karmacrazy-Javascript-API",
+  "version": "0.0.1",
+  "description": "A Javascript wrapper for Karmacracy API.",
+  "homepage": "http://jorgecasar.github.io/Karmacrazy-Javascript-API/",
+  "author": {
+    "name": "Jorge del Casar",
+    "site": "http://twitter.com/jorgecasar"
+  },
+  "dependencies": {
+    "xmlhttprequest": "*"
+  }
+}

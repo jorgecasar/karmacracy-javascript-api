@@ -1,25 +1,25 @@
-/*
- * Serialize an object to param string for URLs
- */
-function serializeObject(object) {
-	var pairs = [];
-	for (var prop in object) {
-		if (!object.hasOwnProperty(prop)) {
-			continue;
-		}
-		if (Object.prototype.toString.call(object[prop]) == '[object Object]') {
-			pairs.push(object[prop].serialize());
-			continue;
-		}
-		pairs.push(prop + '=' + object[prop]);
-	}
-	return pairs.join('&');
-}
-
 function Karmacrazy(appkey, lang){
 	var _appkey = appkey;
 	var _baseUrl = 'http://karmacracy.com/api/v1/';
 	var _langs = ['en', 'es'];
+	
+	/*
+ 	 * Serialize an object to param string for URLs
+ 	 */
+	var _serializeObject = function(object) {
+		var pairs = [];
+		for (var prop in object) {
+			if (!object.hasOwnProperty(prop)) {
+				continue;
+			}
+			if (Object.prototype.toString.call(object[prop]) == '[object Object]') {
+				pairs.push(object[prop].serialize());
+				continue;
+			}
+			pairs.push(prop + '=' + object[prop]);
+		}
+		return pairs.join('&');
+	};
 
 	var _doRequest = function(method, params, error, success) {
 		if( typeof params == 'function')
@@ -102,7 +102,7 @@ function Karmacrazy(appkey, lang){
 				url += method + "/";
 				delete(params.k);
 				params.p = encodeURIComponent(params.p);
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'key:check':
@@ -110,13 +110,13 @@ function Karmacrazy(appkey, lang){
 				url += method + "/";
 				params.key = params.k;
 				delete(params.k);
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'user': case 'awards':
 				url += [method, params.u].join('/');
 				delete(params.u);
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'awards:nut':
@@ -126,20 +126,20 @@ function Karmacrazy(appkey, lang){
 				params.lang = this.lang;
 				delete(params.u);
 				delete(params.n);
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'networks:fbpages':
 				method = method.replace(':', '/');
 				url += method + "/";
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'stats:evolution': case 'stats:relevance':
 				method = method.replace(':', '/');
 				url += method + "/";
 				delete(params.k);
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'kcy': case 'world':
@@ -147,18 +147,18 @@ function Karmacrazy(appkey, lang){
 				delete(params.kcy);
 				delete(params.u);
 				delete(params.k);
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'networks': case 'domains': case 'rank':
 				url += method + "/";
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'share':
 				url += method + "/";
 				params.txt = encodeURIComponent(params.txt);
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 			case 'shortLink':
@@ -167,7 +167,7 @@ function Karmacrazy(appkey, lang){
 				params.key = params.k;
 				params.url = encodeURIComponent(params.url);
 				delete(params.k);
-				params = serializeObject(params);
+				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
 		}
@@ -175,7 +175,7 @@ function Karmacrazy(appkey, lang){
 	};
 
 	this.setLang = function(lang){
-		this.lang = lang || navigator.language || navigator.userLanguage;
+		this.lang = lang || (typeof navigaror !== 'undefined' ? (navigator.language || navigator.userLanguage) : null );
 		if( ! (this.lang in _langs) )
 			this.lang = _langs[0];
 		return this.lang;
@@ -261,4 +261,10 @@ function Karmacrazy(appkey, lang){
 	};
 
 	this.setLang(lang);
+}
+
+if( typeof module !== "undefined" && module.exports )
+{
+	var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+	module.exports = Karmacrazy;
 }
