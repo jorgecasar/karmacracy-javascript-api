@@ -1,4 +1,4 @@
-Karmacrazy API Javascript
+Karmacracy API Javascript
 =========================
 
 A Javascript wrapper for Karmacracy API. You can check all documentation here: http://karmacracy.com/sections/developers/documentation/api-documentation-index.php
@@ -6,19 +6,19 @@ A Javascript wrapper for Karmacracy API. You can check all documentation here: h
 If you want to try the tool, here you are an invitation: http://kcy.me/n6lp
 
 # Initialize
-Before start to develop an app or web using Karmacrazy you need an API_key (http://karmacracy.com/sections/developers/key/play-with-api.php). 
+Before start to develop an app or web using Karmacracy you need an API_key (http://karmacracy.com/sections/developers/key/play-with-api.php). 
 
-## Runing Karmacrazy API in the Client
+## Runing Karmacracy API in the Client
 ```Javascript
-var kcy = new Karmacrazy(API_key, 'es');
+var kcy = new Karmacracy(API_key, 'es');
 ```
-## Runing Karmacrazy API in the Server (NodeJS)
+## Runing Karmacracy API in the Server (NodeJS)
 ```Javascript
-var karmacrazy = require('karmacrazy');
-var kcy = new karmacrazy(API_key, 'es');
+var karmacracy = require('karmacracy');
+var kcy = new karmacracy(API_key, 'es');
 ```
 # Setup the user (client and server)
-The first thing the user of your app will need to give you the userName and userKey (The user can find it in Preferences > Conexions at karmacrazy).
+The first thing the user of your app will need to give you the userName and userKey (The user can find it in Preferences > Conexions at karmacracy).
 ```Javascript
 kcy.setUserName('userName');
 kcy.setUserKey('userKey');
@@ -316,7 +316,7 @@ If all was right you get an object like this:
 ## shortLink
 You can short a link using kcy.me, the Karmacracy.com shortener.
 ```Javascript
-kcy.shortLink({url: 'http://karmacrazy.com'}, onError, onSuccess);
+kcy.shortLink({url: 'http://karmacracy.com'}, onError, onSuccess);
 ```
 If all was right you get an object like this:
 ```JSON

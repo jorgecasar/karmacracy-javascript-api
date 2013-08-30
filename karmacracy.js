@@ -1,4 +1,4 @@
-function Karmacrazy(appkey, lang){
+function Karmacracy(appkey, lang){
 	var _appkey = appkey;
 	var _baseUrl = 'http://karmacracy.com/api/v1/';
 	var _langs = ['en', 'es'];
@@ -266,5 +266,5 @@ function Karmacrazy(appkey, lang){
 if( typeof module !== "undefined" && module.exports )
 {
 	var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-	module.exports = Karmacrazy;
+	module.exports = Karmacracy;
 }
