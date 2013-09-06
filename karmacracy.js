@@ -16,7 +16,9 @@ function Karmacracy(appkey, lang){
 				pairs.push(object[prop].serialize());
 				continue;
 			}
-			pairs.push(prop + '=' + object[prop]);
+			if( object[prop] ){
+				pairs.push(prop + '=' + object[prop]);
+			}
 		}
 		return pairs.join('&');
 	};
@@ -29,7 +31,6 @@ function Karmacracy(appkey, lang){
 			params = {};
 		}
 
-
 		var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
 
 		var requestType = _getRequestType.call(this, method);
@@ -41,15 +42,13 @@ function Karmacracy(appkey, lang){
 			if ( xhr.readyState == 4 ) {
 				if ( xhr.status == 200 ) {
 					var response = _parseResponse(method, xhr);
-					if( typeof success === 'function')
+					if( response && typeof success === 'function')
 						success(response);
 				}
 			}
 		};
-		xhr.onerror = function (xhr) {
-			if( typeof error === 'function')
-				error(xhr);
-		};
+		xhr.onerror = error;
+
 		xhr.send();
 	};
 	var _getRequestType = function(method){
@@ -57,7 +56,11 @@ function Karmacracy(appkey, lang){
 	};
 	var _parseResponse = function(method, xhr){
 		var data = JSON.parse(xhr.responseText);
+		if( data.error )
+			return xhr.onerror(data);
+
 		if( data.data ) data = data.data;
+
 		switch(method){
 			case 'user':
 				data = data.user[0];
@@ -219,9 +222,9 @@ function Karmacracy(appkey, lang){
 		var method = 'awards:nut';
 		_doRequest.call(this, method, params, error, success);
 	};
-	this.getNetworks = function(params, error, success) {
+	this.getNetworks = function(error, success) {
 		var method = 'networks';
-		_doRequest.call(this, method, params, error, success);
+		_doRequest.call(this, method, error, success);
 	};
 	this.getFacebookPages = function(params, error, success) {
 		var method = 'networks:fbpages';
