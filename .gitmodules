@@ -1,0 +1,3 @@
+[submodule "javascripts/libs/karmacracy-javascript-api"]
+	path = javascripts/libs/karmacracy-javascript-api
+	url = https://github.com/jorgecasar/karmacracy-javascript-api.git
