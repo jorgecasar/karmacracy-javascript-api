@@ -339,7 +339,7 @@ If all was right you get an object like this:
 ## shareKcy
 Share a kcy through user networks. Before use it you have to short it and get the user's networks.
 ```Javascript
-kcy.shortLink({
+kcy.shareKcy({
 	txt: 'Text to send to the social network of choice.',
 	kcy: 'nlr8',
 	// Network identifier, composed as follows:
@@ -350,4 +350,25 @@ kcy.shortLink({
 If all was right you get an object like this:
 ```JSON
 {"result": "0"} 
+```
+
+## getFirewords
+Gets the list of the firewords on the Karmacracy portal:
+```Javascript
+kcy.getFirewords({ 
+	num: '30' //number of firewords to get
+},
+ onError, onSuccess);
+```
+
+If all was right you get an object like this:
+```JSON
+"word": [
+    [
+        "celebro",
+        "10",
+        "1",
+        "10.0000"
+    ],
+]
 ```
