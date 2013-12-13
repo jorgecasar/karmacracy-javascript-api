@@ -111,6 +111,9 @@ var app = (function(k){
 				if( form.kcy.value ) params.kcy = form.kcy.value;
 				if( form.where.value ) params.where = form.where.value;
 				break;
+			case 'getFirewords':
+				if( form.num.value ) params.num = form.num.value;
+				break;
 		}
 		return params;
 	};

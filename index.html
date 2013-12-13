@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/extras.css">
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -77,7 +78,16 @@
 
 <div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">,</span> <span class="s1">'userKey'</span><span class="p">);</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="setup">
+  <p><label for="setup_userName">User name: <input id="setup_userName" type="text" name="userName" value="" placeholder="userName" required></label></p>
+  <p><label for="setup_userKey">User key: <input id="setup_userKey" type="text" name="userKey" value="" placeholder="userKey" required></label></p>
+  <p><input type="submit" name="setup_btn" value="Set up"></p>
+</form>
+<div id="setupDone" style="display:none;">
+  <p>User name: <strong></strong></p>
+  <p>User key: <strong></strong></p>
+</div>
 <h1>
 <a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h1>
 
@@ -177,6 +187,14 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}</span>
 </pre></div>
 
+<h3>Demo</h3>
+<form id="getUserInfo" class="requestForm">
+  <p><label for="getUserInfo_userName">User name: <input id="getUserInfo_userName" type="text" name="userName" value="" placeholder="userName"></label></p>
+  <p><input type="submit" name="getUserInfo_btn" value="Get user info"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
 <h2>
 <a name="getnuts" class="anchor" href="#getnuts"><span class="octicon octicon-link"></span></a>getNuts</h2>
 
@@ -200,7 +218,26 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="err">…</span>
 <span class="p">}]</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="getNuts" class="requestForm">
+  <p>
+    <label for="getNuts_userName">User name:</label>
+    <input id="getNuts_userName" type="text" name="userName" value="" placeholder="userName">
+  </p>
+  <p>
+    <label for="getNuts_userName">User name:</label>
+    <select id="getNuts_userName" name="nutType">
+      <option value="A">All</option>
+      <option value="H">Humans</option>
+      <option value="K">Karmacracy</option>
+      <option value="E">Experience</option>
+      <option value="S">Sponsored</option>
+    </select>
+  </p>
+  <p><input type="submit" name="getNuts_btn" value="Get nuts"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getnut" class="anchor" href="#getnut"><span class="octicon octicon-link"></span></a>getNut</h2>
 
@@ -255,7 +292,12 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="err">…</span>
 <span class="p">}</span><span class="err">}</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="getNetworks" class="requestForm">
+  <p><input type="submit" name="getNetworks_btn" value="Get user networks"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getfacebookpages" class="anchor" href="#getfacebookpages"><span class="octicon octicon-link"></span></a>getFacebookPages</h2>
 
@@ -274,7 +316,12 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="err">…</span>
 <span class="p">}]</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="getFacebookPages" class="requestForm">
+  <p><input type="submit" name="getFacebookPages_btn" value="Get user Facebook Pages"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getdomains" class="anchor" href="#getdomains"><span class="octicon octicon-link"></span></a>getDomains</h2>
 
@@ -295,7 +342,16 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="err">…</span>
 <span class="p">}]</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="getDomains" class="requestForm">
+  <p>
+    <label for="getDomains_userName">User name:</label>
+    <input id="getDomains_userName" type="text" name="userName" value="" placeholder="userName">
+  </p>
+  <p><input type="submit" name="getDomains_btn" value="Get Domains"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getkcys" class="anchor" href="#getkcys"><span class="octicon octicon-link"></span></a>getKcys</h2>
 
@@ -323,7 +379,16 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="err">…</span>
 <span class="p">}]</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="getKcys" class="requestForm">
+  <p>
+    <label for="getKcys_userName">User name:</label>
+    <input id="getKcys_userName" type="text" name="userName" value="" placeholder="userName">
+  </p>
+  <p><input type="submit" name="getKcys_btn" value="Get Kcys"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getkcy" class="anchor" href="#getkcy"><span class="octicon octicon-link"></span></a>getKcy</h2>
 
@@ -345,7 +410,16 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="nt">"traffic"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="getKcy" class="requestForm">
+  <p>
+    <label for="getKcy_kcy">Kcy:</label>
+    <input id="getKcy_kcy" type="text" name="kcy" value="" placeholder="cky">
+  </p>
+  <p><input type="submit" name="getKcy_btn" value="Get Kcy details"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getrank" class="anchor" href="#getrank"><span class="octicon octicon-link"></span></a>getRank</h2>
 
@@ -370,7 +444,22 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="err">…</span>
 <span class="p">}]</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="getRank" class="requestForm">
+  <p>
+    <input id="getRank_now_global" type="radio" name="now" value="0" checked>
+    <label for="getRank_now_global">Global</label>
+    <input id="getRank_now_instantaneous" type="radio" name="now" value="1">
+    <label for="getRank_now_instantaneous">Instantaneous</label>
+  </p>
+  <p>
+    <label for="getRank_from">From: </label>
+    <input id="getRank_from" type="number" name="from" value="1">
+  </p>
+  <p><input type="submit" name="getRank_btn" value="Get Rank"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getstatsevolution" class="anchor" href="#getstatsevolution"><span class="octicon octicon-link"></span></a>getStatsEvolution</h2>
 
@@ -396,7 +485,12 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="nt">"kcys"</span><span class="p">:</span> <span class="s2">"118"</span>
 <span class="p">}</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="getStatsEvolution" class="requestForm">
+  <p><input type="submit" name="getStatsEvolution_btn" value="Get stats evolution"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getstatsrelevance" class="anchor" href="#getstatsrelevance"><span class="octicon octicon-link"></span></a>getStatsRelevance</h2>
 
@@ -416,6 +510,12 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="nt">"week"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+<h3>Demo</h3>
+<form id="getStatsRelevance" class="requestForm">
+  <p><input type="submit" name="getStatsRelevance_btn" value="Get stats relevance"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 
 <h2>
 <a name="shortlink" class="anchor" href="#shortlink"><span class="octicon octicon-link"></span></a>shortLink</h2>
@@ -435,7 +535,16 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="nt">"new_hash"</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">}</span>
 </pre></div>
-
+<h3>Demo</h3>
+<form id="shortLink" class="requestForm">
+  <p>
+    <label for="shortLink_url">Url: </label>
+    <input id="shortLink_url" type="url" name="url" value="" placeholder="http://karmacracy.com">
+  </p>
+  <p><input type="submit" name="shortLink_btn" value="Short Link"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="sharekcy" class="anchor" href="#sharekcy"><span class="octicon octicon-link"></span></a>shareKcy</h2>
 
@@ -454,7 +563,26 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 
 <div class="highlight highlight-JSON"><pre><span class="p">{</span><span class="nt">"result"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">}</span> 
 </pre></div>
-
+<h3>Demo</h3>
+<form id="shareLink" class="requestForm">
+  <p>
+    <label for="shareLink_txt">Text: </label>
+    <textarea id="shareLink_txt" type="url" name="txt" placeholder="Text to share in your networks">Trying Karmacracy Javascript API • http://kcy.me/</textarea></p>
+  <p>
+    <label for="shareLink_kcy">Kcy: </label>
+    <input id="shareLink_kcy" type="text" name="kcy" value="" placeholder="kcy">
+  </p>
+  <p>
+    <label for="shareLink_where">Where:</label>
+    <select id="shareLink_where" name="where">
+      <option value="">No networks</option>
+    </select>
+    <input type="button" name="getNetworks_btn" id="shareLink_getNetworks" value="Get user networks">
+  </p>
+  <p><input type="submit" name="shortLink_btn" value="Share Link"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 <h2>
 <a name="getfirewords" class="anchor" href="#getfirewords"><span class="octicon octicon-link"></span></a>getFirewords</h2>
 
@@ -477,11 +605,25 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
     <span class="p">],</span>
 <span class="p">]</span>
 </pre></div>
+
+<h3>Demo</h3>
+<form id="getFirewords" class="requestForm">
+  <p>
+    <label for="getFirewords_from">Number of firewords: </label>
+    <input id="get_num" type="number" name="num" value="1">
+  </p>
+  <p><input type="submit" name="getFirewords_btn" value="Get Firewords"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
+    <script src="javascripts/libs/karmacracy-javascript-api/karmacracy.js"></script>
+    <script src="javascripts/demo.js"></script>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 		          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
