@@ -90,6 +90,9 @@ function Karmacracy(appkey, lang){
 			case 'stats:relevance':
 				data = data.stats;
 				break;
+		    case 'firewords':
+		        data = data.word;
+		        break;
 		}
 		return data;
 	};
@@ -173,6 +176,12 @@ function Karmacracy(appkey, lang){
 				params = _serializeObject(params);
 				if( params !== '' ) url += '?' + params;
 				break;
+		    case 'firewords':
+		        url += method + "/";
+		        params.format = 'json';
+		        params = _serializeObject(params);
+		        if (params !== '') url += '?' + params;
+		        break;
 		}
 		return url;
 	};
@@ -261,6 +270,10 @@ function Karmacracy(appkey, lang){
 	this.shareKcy = function(params, error, success){
 		var method = 'share';
 		_doRequest.call(this, method, params, error, success);
+	};
+	this.getFirewords = function (params, error, success) {
+	    var method = 'firewords';
+	    _doRequest.call(this, method, params, error, success);
 	};
 
 	this.setLang(lang);
