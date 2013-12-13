@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Demo Karmacracy Javascript API by jorgecasar</title>
+    <title>Karmacracy Javascript API by jorgecasar</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="stylesheets/extras.css">
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -46,7 +45,7 @@
 <h2>
 <a name="runing-karmacracy-api-in-the-client" class="anchor" href="#runing-karmacracy-api-in-the-client"><span class="octicon octicon-link"></span></a>Runing Karmacracy API in the Client</h2>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Karmacracy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Karmacracy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
 </pre></div>
 
 <h2>
@@ -54,14 +53,14 @@
 
 <p>You need to add the dependence in the pacjage.json. Check the <a href="https://npmjs.org/package/karmacracy-javascript-api">NPM module page</a></p>
 
-<div class="highlight"><pre><span class="s2">"dependences"</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight highlight-JSON"><pre><span class="s2">"dependences"</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">"karmacracy-javascript-api"</span><span class="p">:</span> <span class="s2">"*"</span>
 <span class="p">}</span>
 </pre></div>
 
 <p>And you can use it as module:</p>
 
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">karmacracy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'karmacracy-javascript-api'</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="kd">var</span> <span class="nx">karmacracy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'karmacracy-javascript-api'</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">karmacracy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
 </pre></div>
 
@@ -70,24 +69,14 @@
 
 <p>The first thing the user of your app will need to give you the userName and userKey (The user can find it in Preferences &gt; Conexions at karmacracy).</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserName</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserName</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">);</span>
 <span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserKey</span><span class="p">(</span><span class="s1">'userKey'</span><span class="p">);</span>
 </pre></div>
 
 <p>If you want to do this in one simple line</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">,</span> <span class="s1">'userKey'</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">,</span> <span class="s1">'userKey'</span><span class="p">);</span>
 </pre></div>
-<h3>Demo</h3>
-<form id="setup">
-  <p><label for="setup_userName">User name: <input id="setup_userName" type="text" name="userName" value="" placeholder="userName" required></label></p>
-  <p><label for="setup_userKey">User key: <input id="setup_userKey" type="text" name="userKey" value="" placeholder="userKey" required></label></p>
-  <p><input type="submit" name="setup_btn" value="Set up"></p>
-</form>
-<div id="setupDone" style="display:none;">
-  <p>User name: <strong></strong></p>
-  <p>User key: <strong></strong></p>
-</div>
 
 <h1>
 <a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h1>
@@ -97,7 +86,7 @@
 
 <p>You can change the lang of the response using this function. The response of following request will be in the new language</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setLang</span><span class="p">(</span><span class="s1">'es'</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setLang</span><span class="p">(</span><span class="s1">'es'</span><span class="p">);</span>
 </pre></div>
 
 <h2>
@@ -105,7 +94,7 @@
 
 <p>You can change the userName for the request. Remember that you have to change the userKey too.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserName</span><span class="p">(</span><span class="s1">'jorgecasar'</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserName</span><span class="p">(</span><span class="s1">'jorgecasar'</span><span class="p">);</span>
 </pre></div>
 
 <h2>
@@ -113,7 +102,7 @@
 
 <p>You can change the userKey for the request. Remember that you have to change the userName too.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserKey</span><span class="p">(</span><span class="s1">'ia7odp8fvdof'</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserKey</span><span class="p">(</span><span class="s1">'ia7odp8fvdof'</span><span class="p">);</span>
 </pre></div>
 
 <h2>
@@ -121,7 +110,7 @@
 
 <p>This is a shortcut to change UserName and UserKey at once. You need give the parameters userName and userKey.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'jorgecasar'</span><span class="p">,</span> <span class="s1">'ia7odp8fvdof'</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'jorgecasar'</span><span class="p">,</span> <span class="s1">'ia7odp8fvdof'</span><span class="p">);</span>
 </pre></div>
 
 <h2>
@@ -129,7 +118,7 @@
 
 <p>You can recover the key asking for the user's name and password.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKey</span><span class="p">({</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKey</span><span class="p">({</span>
     <span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">,</span>
     <span class="nx">p</span><span class="o">:</span> <span class="s1">'jorgecasarPassword'</span>
 <span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
@@ -137,7 +126,7 @@
 
 <p>You can manage the error or success with the callbacks. If all went well you receive an object like this:</p>
 
-<div class="highlight"><pre><span class="p">{</span><span class="nx">error</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">key</span><span class="o">:</span> <span class="s1">'userKey'</span><span class="p">}</span>
+<div class="highlight highlight-Javascript"><pre><span class="p">{</span><span class="nx">error</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">key</span><span class="o">:</span> <span class="s1">'userKey'</span><span class="p">}</span>
 </pre></div>
 
 <h2>
@@ -145,7 +134,7 @@
 
 <p>You can regenerate the userKey of the user asking for the user's name and password.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNewKey</span><span class="p">({</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNewKey</span><span class="p">({</span>
     <span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">,</span>
     <span class="nx">p</span><span class="o">:</span> <span class="s1">'jorgecasarPassword'</span>
 <span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
@@ -158,7 +147,7 @@
 
 <p>Allows to know whether the user and the key (third key) entered by the user are valids.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">checkKey</span><span class="p">({</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">checkKey</span><span class="p">({</span>
     <span class="nx">k</span><span class="o">:</span> <span class="s1">'userKey'</span>
 <span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
@@ -171,13 +160,13 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 
 <p>Return user details and a list of his kcys.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>    
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>    
 <span class="nx">kcy</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">({</span><span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If the user does't exist you get an error 404. In the other case you get an object with the user info:</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">{</span>
     <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"jorgecasar"</span><span class="p">,</span>
     <span class="nt">"kcyrank"</span><span class="p">:</span> <span class="s2">"40"</span><span class="p">,</span>
     <span class="nt">"img"</span><span class="p">:</span> <span class="s2">"http://gravatar.com/avatar/b374f3bd05b1db4a974585ba57661815/?s=85"</span><span class="p">,</span>
@@ -188,26 +177,18 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getUserInfo" class="requestForm">
-  <p><label for="getUserInfo_userName">User name: <input id="getUserInfo_userName" type="text" name="userName" value="" placeholder="userName"></label></p>
-  <p><input type="submit" name="getUserInfo_btn" value="Get user info"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getnuts" class="anchor" href="#getnuts"><span class="octicon octicon-link"></span></a>getNuts</h2>
 
 <p>Return an array with all user's nuts</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNuts</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>    
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNuts</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>    
 <span class="nx">kcy</span><span class="p">.</span><span class="nx">getNuts</span><span class="p">({</span><span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight"><pre><span class="p">[{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
     <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"140"</span><span class="p">,</span>
     <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Creator 10"</span><span class="p">,</span>
     <span class="nt">"imageSmall"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png"</span><span class="p">,</span>
@@ -220,33 +201,12 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}]</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getNuts" class="requestForm">
-  <p>
-    <label for="getNuts_userName">User name:</label>
-    <input id="getNuts_userName" type="text" name="userName" value="" placeholder="userName">
-  </p>
-  <p>
-    <label for="getNuts_userName">User name:</label>
-    <select id="getNuts_userName" name="nutType">
-      <option value="A">All</option>
-      <option value="H">Humans</option>
-      <option value="K">Karmacracy</option>
-      <option value="E">Experience</option>
-      <option value="S">Sponsored</option>
-    </select>
-  </p>
-  <p><input type="submit" name="getNuts_btn" value="Get nuts"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getnut" class="anchor" href="#getnut"><span class="octicon octicon-link"></span></a>getNut</h2>
 
 <p>Return detailed information and URLs of the nut (achievement) of the user.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNut</span><span class="p">({</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNut</span><span class="p">({</span>
     <span class="nx">n</span><span class="o">:</span> <span class="s1">'140'</span>
 <span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 
@@ -258,7 +218,7 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">{</span>
     <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"140"</span><span class="p">,</span>
     <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Creator 10"</span><span class="p">,</span>
     <span class="nt">"dateSince"</span><span class="p">:</span> <span class="s2">"2012-09-03"</span><span class="p">,</span>
@@ -280,13 +240,13 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 
 <p>This method return an array with all user's networks</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNetworks</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNetworks</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 <span class="nx">kcy</span><span class="p">.</span><span class="nx">getNetworks</span><span class="p">({</span> <span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span> <span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight"><pre><span class="p">[{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
     <span class="nt">"connectid"</span><span class="p">:</span> <span class="s2">"connectID"</span><span class="p">,</span>
     <span class="nt">"hidden"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
     <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Jorge del Casar"</span><span class="p">,</span>
@@ -296,24 +256,17 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}</span><span class="err">}</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getNetworks" class="requestForm">
-  <p><input type="submit" name="getNetworks_btn" value="Get user networks"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getfacebookpages" class="anchor" href="#getfacebookpages"><span class="octicon octicon-link"></span></a>getFacebookPages</h2>
 
 <p>Return an array with all Facebook Pages that the user is admin.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getFacebookPages</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getFacebookPages</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight"><pre><span class="p">[{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
     <span class="nt">"access_token"</span><span class="p">:</span> <span class="s2">"ACCESS_TOKEN"</span><span class="p">,</span>
     <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"FACEBOOK_PAGE_ID"</span><span class="p">,</span>
     <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Jorge del Casar - Desarrollo Frontend"</span>
@@ -322,25 +275,18 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}]</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getFacebookPages" class="requestForm">
-  <p><input type="submit" name="getFacebookPages_btn" value="Get user Facebook Pages"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getdomains" class="anchor" href="#getdomains"><span class="octicon octicon-link"></span></a>getDomains</h2>
 
 <p>Returns the list of user's domains ranking ordered by the user within the domain.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getDomains</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getDomains</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 <span class="nx">kcy</span><span class="p">.</span><span class="nx">getDomains</span><span class="p">({</span><span class="nx">u</span><span class="o">:</span><span class="s1">'jorgecasar'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight"><pre><span class="p">[{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
     <span class="nt">"clicks"</span><span class="p">:</span> <span class="s2">"246"</span><span class="p">,</span>
     <span class="nt">"domain"</span><span class="p">:</span> <span class="s2">"developer.blackberry.com"</span><span class="p">,</span>
     <span class="nt">"numPersonas"</span><span class="p">:</span> <span class="s2">"5"</span><span class="p">,</span>
@@ -350,29 +296,18 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}]</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getDomains" class="requestForm">
-  <p>
-    <label for="getDomains_userName">User name:</label>
-    <input id="getDomains_userName" type="text" name="userName" value="" placeholder="userName">
-  </p>
-  <p><input type="submit" name="getDomains_btn" value="Get Domains"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getkcys" class="anchor" href="#getkcys"><span class="octicon octicon-link"></span></a>getKcys</h2>
 
 <p>Allows you to view, search and explore all kcys in Karmacracy.com.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKcys</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKcys</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 <span class="nx">kcy</span><span class="p">.</span><span class="nx">getKcys</span><span class="p">({</span><span class="nx">u</span><span class="o">:</span><span class="s1">'jorgecasar'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight"><pre><span class="p">[{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
     <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"qt36"</span><span class="p">,</span>
     <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html"</span><span class="p">,</span>
     <span class="nt">"title"</span><span class="p">:</span> <span class="s2">"Socializando enlaces y contenidos con Karmacracy"</span><span class="p">,</span>
@@ -389,28 +324,17 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}]</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getKcys" class="requestForm">
-  <p>
-    <label for="getKcys_userName">User name:</label>
-    <input id="getKcys_userName" type="text" name="userName" value="" placeholder="userName">
-  </p>
-  <p><input type="submit" name="getKcys_btn" value="Get Kcys"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getkcy" class="anchor" href="#getkcy"><span class="octicon octicon-link"></span></a>getKcy</h2>
 
 <p>Get a kcy detailed information, statistics and human trafficking that have shared.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKcys</span><span class="p">({</span><span class="nx">kcy</span><span class="o">:</span><span class="s1">'qt36'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKcys</span><span class="p">({</span><span class="nx">kcy</span><span class="o">:</span><span class="s1">'qt36'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">{</span>
     <span class="nt">"shorturl"</span><span class="p">:</span> <span class="s2">"qt36"</span><span class="p">,</span>
     <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html"</span><span class="p">,</span>
     <span class="nt">"date"</span><span class="p">:</span> <span class="s2">"2013-08-29 07:32:21"</span><span class="p">,</span>
@@ -422,23 +346,12 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getKcy" class="requestForm">
-  <p>
-    <label for="getKcy_kcy">Kcy:</label>
-    <input id="getKcy_kcy" type="text" name="kcy" value="" placeholder="cky">
-  </p>
-  <p><input type="submit" name="getKcy_btn" value="Get Kcy details"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getrank" class="anchor" href="#getrank"><span class="octicon octicon-link"></span></a>getRank</h2>
 
 <p>View and explore the global and instantaneous kcyrank.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getRank</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getRank</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 <span class="c1">// Get the instantaneous rank from position 40th.</span>
 <span class="nx">kcy</span><span class="p">.</span><span class="nx">getRank</span><span class="p">({</span>
     <span class="nx">now</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
@@ -448,7 +361,7 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight"><pre><span class="p">[{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
     <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"elandroidelibre"</span><span class="p">,</span>
     <span class="nt">"kcyrank"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
     <span class="nt">"img"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com/img-users/114.jpg"</span><span class="p">,</span>
@@ -458,34 +371,17 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}]</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getRank" class="requestForm">
-  <p>
-    <input id="getRank_now_global" type="radio" name="now" value="0" checked>
-    <label for="getRank_now_global">Global</label>
-    <input id="getRank_now_instantaneous" type="radio" name="now" value="1">
-    <label for="getRank_now_instantaneous">Instantaneous</label>
-  </p>
-  <p>
-    <label for="getRank_from">From: </label>
-    <input id="getRank_from" type="number" name="from" value="1">
-  </p>
-  <p><input type="submit" name="getRank_btn" value="Get Rank"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getstatsevolution" class="anchor" href="#getstatsevolution"><span class="octicon octicon-link"></span></a>getStatsEvolution</h2>
 
 <p>Returns the statistics of the evolution of a user in the last 30 days.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getStatsEvolution</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getStatsEvolution</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">{</span>
 
     <span class="nt">"links_evolution"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
     <span class="nt">"koi_evolution"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
@@ -501,24 +397,17 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getStatsEvolution" class="requestForm">
-  <p><input type="submit" name="getStatsEvolution_btn" value="Get stats evolution"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="getstatsrelevance" class="anchor" href="#getstatsrelevance"><span class="octicon octicon-link"></span></a>getStatsRelevance</h2>
 
 <p>Returns the statistics of the relevance of a user in the last 30 days (default), 7 days or 24 hours.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getStatsRelevance</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getStatsRelevance</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">{</span>
     <span class="nt">"hours"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
     <span class="nt">"kclicks"</span><span class="p">:</span> <span class="s2">"4357.64"</span><span class="p">,</span>
     <span class="nt">"kcys"</span><span class="p">:</span> <span class="s2">"118"</span><span class="p">,</span>
@@ -528,24 +417,17 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="getStatsRelevance" class="requestForm">
-  <p><input type="submit" name="getStatsRelevance_btn" value="Get stats relevance"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="shortlink" class="anchor" href="#shortlink"><span class="octicon octicon-link"></span></a>shortLink</h2>
 
 <p>You can short a link using kcy.me, the Karmacracy.com shortener.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">shortLink</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="s1">'http://karmacracy.com'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">shortLink</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="s1">'http://karmacracy.com'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
 </pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight highlight-JSON"><pre><span class="p">{</span>
     <span class="nt">"long_url"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com"</span><span class="p">,</span>
     <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://kcy.me/nlr8"</span><span class="p">,</span>
     <span class="nt">"hash"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
@@ -554,23 +436,12 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 <span class="p">}</span>
 </pre></div>
 
-<h3>Demo</h3>
-<form id="shortLink" class="requestForm">
-  <p>
-    <label for="shortLink_url">Url: </label>
-    <input id="shortLink_url" type="url" name="url" value="" placeholder="http://karmacracy.com">
-  </p>
-  <p><input type="submit" name="shortLink_btn" value="Short Link"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
 <h2>
 <a name="sharekcy" class="anchor" href="#sharekcy"><span class="octicon octicon-link"></span></a>shareKcy</h2>
 
 <p>Share a kcy through user networks. Before use it you have to short it and get the user's networks.</p>
 
-<div class="highlight"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">shortLink</span><span class="p">({</span>
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">shareKcy</span><span class="p">({</span>
     <span class="nx">txt</span><span class="o">:</span> <span class="s1">'Text to send to the social network of choice.'</span><span class="p">,</span>
     <span class="nx">kcy</span><span class="o">:</span> <span class="s1">'nlr8'</span><span class="p">,</span>
     <span class="c1">// Network identifier, composed as follows:</span>
@@ -581,47 +452,47 @@ In the other case, if it's not correct: <code>{ok: 0}</code></p>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight"><pre><span class="p">{</span><span class="nt">"result"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">}</span> 
+<div class="highlight highlight-JSON"><pre><span class="p">{</span><span class="nt">"result"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">}</span> 
 </pre></div>
 
-<h3>Demo</h3>
-<form id="shareLink" class="requestForm">
-  <p>
-    <label for="shareLink_txt">Text: </label>
-    <textarea id="shareLink_txt" type="url" name="txt" placeholder="Text to share in your networks">Trying Karmacracy Javascript API • http://kcy.me/</textarea></p>
-  <p>
-    <label for="shareLink_kcy">Kcy: </label>
-    <input id="shareLink_kcy" type="text" name="kcy" value="" placeholder="kcy">
-  </p>
-  <p>
-    <label for="shareLink_where">Where:</label>
-    <select id="shareLink_where" name="where">
-      <option value="">No networks</option>
-    </select>
-    <input type="button" name="getNetworks_btn" id="shareLink_getNetworks" value="Get user networks">
-  </p>
-  <p><input type="submit" name="shortLink_btn" value="Share Link"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<h2>
+<a name="getfirewords" class="anchor" href="#getfirewords"><span class="octicon octicon-link"></span></a>getFirewords</h2>
 
+<p>Gets the list of the firewords on the Karmacracy portal:</p>
+
+<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getFirewords</span><span class="p">({</span> 
+    <span class="nx">num</span><span class="o">:</span> <span class="s1">'30'</span> <span class="c1">//number of firewords to get</span>
+<span class="p">},</span>
+ <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+</pre></div>
+
+<p>If all was right you get an object like this:</p>
+
+<div class="highlight highlight-JSON"><pre><span class="s2">"word"</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">[</span>
+        <span class="s2">"celebro"</span><span class="p">,</span>
+        <span class="s2">"10"</span><span class="p">,</span>
+        <span class="s2">"1"</span><span class="p">,</span>
+        <span class="s2">"10.0000"</span>
+    <span class="p">],</span>
+<span class="p">]</span>
+</pre></div>
       </section>
       <footer>
-        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-    <script src="javascripts/libs/karmacracy-javascript-api/karmacracy.js"></script>
-    <script src="javascripts/demo.js"></script>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    <!-- script type="text/javascript">
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-      try {
-        var pageTracker = _gat._getTracker("UA-43645121-1");
-        pageTracker._trackPageview();
-      } catch(err) {}
-    </script-->
+		          <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-43645121-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
   </body>
 </html>
