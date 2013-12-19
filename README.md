@@ -1,12 +1,12 @@
 Karmacracy API Javascript
 =========================
 
-A Javascript wrapper for Karmacracy API. You can check the [official documentation](http://karmacracy.com/sections/developers/documentation/api-documentation-index.php)
+A Javascript wrapper for Karmacracy API. You can check the [official documentation](http://karmacracy.com/sections/api/documentation/api-documentation-index.php)
 
 If you want to try the tool, here you are an [invitation](http://kcy.me/n6lp)
 
 # Initialize
-Before start to develop an app or web using Karmacracy you need an [API_key](http://karmacracy.com/sections/developers/key/play-with-api.php). 
+Before start to develop an app or web using Karmacracy you need an [API_key](http://karmacracy.com/sections/api/key/introduction.php). 
 
 ## Runing Karmacracy API in the Client
 ```Javascript
