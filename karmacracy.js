@@ -1,8 +1,7 @@
-function Karmacracy(appkey, lang){
+function Karmacracy(appkey, lang) {
 	var _appkey = appkey;
 	var _baseUrl = 'http://karmacracy.com/api/v1/';
 	var _langs = ['en', 'es'];
-	
 	/*
  	 * Serialize an object to param string for URLs
  	 */
@@ -188,7 +187,7 @@ function Karmacracy(appkey, lang){
 
 	this.setLang = function(lang){
 		this.lang = lang || (typeof navigaror !== 'undefined' ? (navigator.language || navigator.userLanguage) : null );
-		if( ! (this.lang in _langs) )
+		if( _langs.indexOf(this.lang) === -1 )
 			this.lang = _langs[0];
 		return this.lang;
 	};
