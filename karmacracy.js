@@ -186,7 +186,7 @@ function Karmacracy(appkey, lang) {
 	};
 
 	this.setLang = function(lang){
-		this.lang = lang || (typeof navigaror !== 'undefined' ? (navigator.language || navigator.userLanguage) : null );
+		this.lang = lang || (typeof navigator !== 'undefined' ? (navigator.language || navigator.userLanguage) : null );
 		if( _langs.indexOf(this.lang) === -1 )
 			this.lang = _langs[0];
 		return this.lang;
