@@ -343,7 +343,7 @@ kcy.shareKcy({
 	txt: 'Text to send to the social network of choice.',
 	kcy: 'nlr8',
 	// Network identifier, composed as follows:
-	// RR_IDCONNECT, being 'RR' property 'type' network, and being IDCONNECT property 'connectId'.
+	// RR_IDCONNECT, being 'RR' property 'type' network, and being IDCONNECT property 'connectid'.
 	where: 'RR_IDCONNECT'
 }, onError, onSuccess);
 ```
