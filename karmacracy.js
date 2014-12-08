@@ -30,7 +30,7 @@ function Karmacracy(appkey, lang) {
 			params = {};
 		}
 
-		var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
+		var xhr = XMLHttpRequest ? new XMLHttpRequest({mozSystem: true}) : new ActiveXObject("Microsoft.XMLHTTP");
 
 		var requestType = _getRequestType.call(this, method);
 		var url = _getUrl.call(this, method, params);
