@@ -9,6 +9,23 @@ A Javascript wrapper for Karmacracy API. You can check the [official documentati
 
 If you want to try the tool, here you are an [invitation](http://kcy.me/n6lp)
 
+# Installation
+
+You can use it in client-side and also in server-side
+
+## Client-side
+
+You can add it as bower dependency:
+
+```bower install --save karmacracy-javascript-api```
+
+## Server-side
+
+You can install it using npm:
+
+```npm install --save karmacracy-javascript-api```
+
+
 # Initialize
 Before start to develop an app or web using Karmacracy you need an [API_key](http://karmacracy.com/sections/api/key/introduction.php). 
 
