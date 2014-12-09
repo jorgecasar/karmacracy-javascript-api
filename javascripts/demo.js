@@ -17,7 +17,7 @@ var app = (function(k){
 			k.checkKey(function(error, data){
 				if( error )
 				{
-					that.onError(error, data)
+					that.onError(form, error)
 				}
 				else
 				{
@@ -57,7 +57,10 @@ var app = (function(k){
 					{
 						if( error )
 						{
-							that.onError(form, data);
+							that.onError(form, {
+								error: error.status,
+								descError: error.errorText
+							});
 						}
 						else
 						{
