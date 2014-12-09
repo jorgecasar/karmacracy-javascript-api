@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="stylesheets/extras.css">
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -32,598 +31,416 @@
       </header>
       <section>
         <h1>
-<a name="karmacracy-api-javascript" class="anchor" href="#karmacracy-api-javascript"><span class="octicon octicon-link"></span></a>Karmacracy API Javascript</h1>
+<a id="karmacracy-api-javascript" class="anchor" href="#karmacracy-api-javascript" aria-hidden="true"><span class="octicon octicon-link"></span></a>Karmacracy API Javascript</h1>
 
 <p>A Javascript wrapper for Karmacracy API. You can check the <a href="http://karmacracy.com/sections/developers/documentation/api-documentation-index.php">official documentation</a></p>
 
 <p>If you want to try the tool, here you are an <a href="http://kcy.me/n6lp">invitation</a></p>
 
 <h1>
-<a name="initialize" class="anchor" href="#initialize"><span class="octicon octicon-link"></span></a>Initialize</h1>
+<a id="initialize" class="anchor" href="#initialize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initialize</h1>
 
 <p>Before start to develop an app or web using Karmacracy you need an <a href="http://karmacracy.com/sections/developers/key/play-with-api.php">API_key</a>. </p>
 
 <h2>
-<a name="runing-karmacracy-api-in-the-client" class="anchor" href="#runing-karmacracy-api-in-the-client"><span class="octicon octicon-link"></span></a>Runing Karmacracy API in the Client</h2>
+<a id="runing-karmacracy-api-in-the-client" class="anchor" href="#runing-karmacracy-api-in-the-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runing Karmacracy API in the Client</h2>
 
-<div class="highlight highlight-Javascript"><pre><span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Karmacracy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre><span class="pl-s">var</span> kcy <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Karmacracy</span>(API_key, <span class="pl-s1"><span class="pl-pds">'</span>es<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
-<a name="runing-karmacracy-api-in-the-server-nodejs" class="anchor" href="#runing-karmacracy-api-in-the-server-nodejs"><span class="octicon octicon-link"></span></a>Runing Karmacracy API in the Server (NodeJS)</h2>
+<a id="runing-karmacracy-api-in-the-server-nodejs" class="anchor" href="#runing-karmacracy-api-in-the-server-nodejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runing Karmacracy API in the Server (NodeJS)</h2>
 
 <p>You need to add the dependence in the pacjage.json. Check the <a href="https://npmjs.org/package/karmacracy-javascript-api">NPM module page</a></p>
 
-<div class="highlight highlight-JSON"><pre><span class="s2">"dependences"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="nt">"karmacracy-javascript-api"</span><span class="p">:</span> <span class="s2">"*"</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-JSON"><pre><span class="pl-s1"><span class="pl-pds">"</span>dependences<span class="pl-pds">"</span></span>: {
+    <span class="pl-s1"><span class="pl-pds">"</span>karmacracy-javascript-api<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>*<span class="pl-pds">"</span></span>
+}</pre></div>
 
 <p>And you can use it as module:</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="kd">var</span> <span class="nx">karmacracy</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'karmacracy-javascript-api'</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">kcy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">karmacracy</span><span class="p">(</span><span class="nx">API_key</span><span class="p">,</span> <span class="s1">'es'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre><span class="pl-s">var</span> karmacracy <span class="pl-k">=</span> <span class="pl-s3">require</span>(<span class="pl-s1"><span class="pl-pds">'</span>karmacracy-javascript-api<span class="pl-pds">'</span></span>);
+<span class="pl-s">var</span> kcy <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">karmacracy</span>(API_key, <span class="pl-s1"><span class="pl-pds">'</span>es<span class="pl-pds">'</span></span>);</pre></div>
 
 <h1>
-<a name="setup-the-user-client-and-server" class="anchor" href="#setup-the-user-client-and-server"><span class="octicon octicon-link"></span></a>Setup the user (client and server)</h1>
+<a id="setup-the-user-client-and-server" class="anchor" href="#setup-the-user-client-and-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup the user (client and server)</h1>
 
 <p>The first thing the user of your app will need to give you the userName and userKey (The user can find it in Preferences &gt; Conexions at karmacracy).</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserName</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">);</span>
-<span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserKey</span><span class="p">(</span><span class="s1">'userKey'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.setUserName(<span class="pl-s1"><span class="pl-pds">'</span>userName<span class="pl-pds">'</span></span>);
+kcy.setUserKey(<span class="pl-s1"><span class="pl-pds">'</span>userKey<span class="pl-pds">'</span></span>);</pre></div>
 
 <p>If you want to do this in one simple line</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'userName'</span><span class="p">,</span> <span class="s1">'userKey'</span><span class="p">);</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="setup">
-  <p><label for="setup_userName">User name: <input id="setup_userName" type="text" name="userName" value="" placeholder="userName" required></label></p>
-  <p><label for="setup_userKey">User key: <input id="setup_userKey" type="text" name="userKey" value="" placeholder="userKey" required></label></p>
-  <p><input type="submit" name="setup_btn" value="Set up"></p>
-</form>
-<div id="setupDone" style="display:none;">
-  <p>User name: <strong></strong></p>
-  <p>User key: <strong></strong></p>
-</div>
+<div class="highlight highlight-Javascript"><pre>kcy.setUser(<span class="pl-s1"><span class="pl-pds">'</span>userName<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>userKey<span class="pl-pds">'</span></span>);</pre></div>
+
 <h1>
-<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h1>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h1>
 
 <h2>
-<a name="setlang" class="anchor" href="#setlang"><span class="octicon octicon-link"></span></a>setLang</h2>
+<a id="setlang" class="anchor" href="#setlang" aria-hidden="true"><span class="octicon octicon-link"></span></a>setLang</h2>
 
 <p>You can change the lang of the response using this function. The response of following request will be in the new language</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setLang</span><span class="p">(</span><span class="s1">'es'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.setLang(<span class="pl-s1"><span class="pl-pds">'</span>es<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
-<a name="setusername" class="anchor" href="#setusername"><span class="octicon octicon-link"></span></a>setUserName</h2>
+<a id="setusername" class="anchor" href="#setusername" aria-hidden="true"><span class="octicon octicon-link"></span></a>setUserName</h2>
 
 <p>You can change the userName for the request. Remember that you have to change the userKey too.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserName</span><span class="p">(</span><span class="s1">'jorgecasar'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.setUserName(<span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
-<a name="setuserkey" class="anchor" href="#setuserkey"><span class="octicon octicon-link"></span></a>setUserKey</h2>
+<a id="setuserkey" class="anchor" href="#setuserkey" aria-hidden="true"><span class="octicon octicon-link"></span></a>setUserKey</h2>
 
 <p>You can change the userKey for the request. Remember that you have to change the userName too.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUserKey</span><span class="p">(</span><span class="s1">'ia7odp8fvdof'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.setUserKey(<span class="pl-s1"><span class="pl-pds">'</span>ia7odp8fvdof<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
-<a name="setuser" class="anchor" href="#setuser"><span class="octicon octicon-link"></span></a>setUser</h2>
+<a id="setuser" class="anchor" href="#setuser" aria-hidden="true"><span class="octicon octicon-link"></span></a>setUser</h2>
 
 <p>This is a shortcut to change UserName and UserKey at once. You need give the parameters userName and userKey.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">setUser</span><span class="p">(</span><span class="s1">'jorgecasar'</span><span class="p">,</span> <span class="s1">'ia7odp8fvdof'</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.setUser(<span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>ia7odp8fvdof<span class="pl-pds">'</span></span>);</pre></div>
 
 <h2>
-<a name="getkey" class="anchor" href="#getkey"><span class="octicon octicon-link"></span></a>getKey</h2>
+<a id="getkey" class="anchor" href="#getkey" aria-hidden="true"><span class="octicon octicon-link"></span></a>getKey</h2>
 
 <p>You can recover the key asking for the user's name and password.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKey</span><span class="p">({</span>
-    <span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">,</span>
-    <span class="nx">p</span><span class="o">:</span> <span class="s1">'jorgecasarPassword'</span>
-<span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getKey({
+    u<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>,
+    p<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>jorgecasarPassword<span class="pl-pds">'</span></span>
+}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>You can manage the error or success with the callbacks. If all went well you receive an object like this:</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="p">{</span><span class="nx">error</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">key</span><span class="o">:</span> <span class="s1">'userKey'</span><span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>{error<span class="pl-k">:</span> <span class="pl-c1">0</span>, key<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>userKey<span class="pl-pds">'</span></span>}</pre></div>
 
 <h2>
-<a name="getnewkey" class="anchor" href="#getnewkey"><span class="octicon octicon-link"></span></a>getNewKey</h2>
+<a id="getnewkey" class="anchor" href="#getnewkey" aria-hidden="true"><span class="octicon octicon-link"></span></a>getNewKey</h2>
 
 <p>You can regenerate the userKey of the user asking for the user's name and password.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNewKey</span><span class="p">({</span>
-    <span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">,</span>
-    <span class="nx">p</span><span class="o">:</span> <span class="s1">'jorgecasarPassword'</span>
-<span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getNewKey({
+    u<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>,
+    p<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>jorgecasarPassword<span class="pl-pds">'</span></span>
+}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>You can manage the error or success with the callbacks. If all went well you receive an object like this: <code>{error: 0, key: 'userNewKey'}</code></p>
 
 <h2>
-<a name="checkkey" class="anchor" href="#checkkey"><span class="octicon octicon-link"></span></a>checkKey</h2>
+<a id="checkkey" class="anchor" href="#checkkey" aria-hidden="true"><span class="octicon octicon-link"></span></a>checkKey</h2>
 
 <p>Allows to know whether the user and the key (third key) entered by the user are valids.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">checkKey</span><span class="p">({</span>
-    <span class="nx">k</span><span class="o">:</span> <span class="s1">'userKey'</span>
-<span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.checkKey({
+    k<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>userKey<span class="pl-pds">'</span></span>
+}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>You can manage the error or success with the callbacks. If all went well you receive an object like this: <code>{ok: 1}</code>
 In the other case, if it's not correct: <code>{ok: 0}</code></p>
 
 <h2>
-<a name="getuserinfo" class="anchor" href="#getuserinfo"><span class="octicon octicon-link"></span></a>getUserInfo</h2>
+<a id="getuserinfo" class="anchor" href="#getuserinfo" aria-hidden="true"><span class="octicon octicon-link"></span></a>getUserInfo</h2>
 
 <p>Return user details and a list of his kcys.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>    
-<span class="nx">kcy</span><span class="p">.</span><span class="nx">getUserInfo</span><span class="p">({</span><span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getUserInfo(<span class="pl-s3">onError</span>, onSuccess);    
+kcy.getUserInfo({u<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If the user does't exist you get an error 404. In the other case you get an object with the user info:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">{</span>
-    <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"jorgecasar"</span><span class="p">,</span>
-    <span class="nt">"kcyrank"</span><span class="p">:</span> <span class="s2">"40"</span><span class="p">,</span>
-    <span class="nt">"img"</span><span class="p">:</span> <span class="s2">"http://gravatar.com/avatar/b374f3bd05b1db4a974585ba57661815/?s=85"</span><span class="p">,</span>
-    <span class="nt">"level"</span><span class="p">:</span> <span class="s2">"3"</span><span class="p">,</span>
-    <span class="nt">"date_signed"</span><span class="p">:</span> <span class="s2">"2012-10-28 17:20:32"</span><span class="p">,</span>
-    <span class="nt">"stats"</span><span class="p">:</span> <span class="p">[],</span>
-    <span class="nt">"kcys"</span><span class="p">:</span> <span class="p">[]</span>
-<span class="p">}</span>
-</pre></div>
-
-<h3>Demo</h3>
-<form id="getUserInfo" class="requestForm">
-  <p><label for="getUserInfo_userName">User name: <input id="getUserInfo_userName" type="text" name="userName" value="" placeholder="userName"></label></p>
-  <p><input type="submit" name="getUserInfo_btn" value="Get user info"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>jorgecasar<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>kcyrank<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>40<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>img<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://gravatar.com/avatar/b374f3bd05b1db4a974585ba57661815/?s=85<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>level<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>3<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>date_signed<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2012-10-28 17:20:32<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>stats<span class="pl-pds">"</span></span>: [],
+    <span class="pl-s1"><span class="pl-pds">"</span>kcys<span class="pl-pds">"</span></span>: []
+}</pre></div>
 
 <h2>
-<a name="getnuts" class="anchor" href="#getnuts"><span class="octicon octicon-link"></span></a>getNuts</h2>
+<a id="getnuts" class="anchor" href="#getnuts" aria-hidden="true"><span class="octicon octicon-link"></span></a>getNuts</h2>
 
 <p>Return an array with all user's nuts</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNuts</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>    
-<span class="nx">kcy</span><span class="p">.</span><span class="nx">getNuts</span><span class="p">({</span><span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getNuts(<span class="pl-s3">onError</span>, onSuccess);    
+kcy.getNuts({u<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
-    <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"140"</span><span class="p">,</span>
-    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Creator 10"</span><span class="p">,</span>
-    <span class="nt">"imageSmall"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png"</span><span class="p">,</span>
-    <span class="nt">"imageBig"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com/img-nuts/3d1c89f69382216508cdeb2a685a85336cd9d651.png"</span><span class="p">,</span>
-    <span class="nt">"level"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
-    <span class="nt">"dateReceivedOrLast"</span><span class="p">:</span> <span class="s2">"2013-06-24"</span><span class="p">,</span>
-    <span class="nt">"number"</span><span class="p">:</span> <span class="s2">"1"</span>
-<span class="p">},{</span>
-    <span class="err">…</span>
-<span class="p">}]</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getNuts" class="requestForm">
-  <p>
-    <label for="getNuts_userName">User name:</label>
-    <input id="getNuts_userName" type="text" name="userName" value="" placeholder="userName">
-  </p>
-  <p>
-    <label for="getNuts_userName">User name:</label>
-    <select id="getNuts_userName" name="nutType">
-      <option value="A">All</option>
-      <option value="H">Humans</option>
-      <option value="K">Karmacracy</option>
-      <option value="E">Experience</option>
-      <option value="S">Sponsored</option>
-    </select>
-  </p>
-  <p><input type="submit" name="getNuts_btn" value="Get nuts"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>[{
+    <span class="pl-s1"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>140<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>Creator 10<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>imageSmall<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>imageBig<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://karmacracy.com/img-nuts/3d1c89f69382216508cdeb2a685a85336cd9d651.png<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>level<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>dateReceivedOrLast<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2013-06-24<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>number<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>
+},{
+    <span class="pl-ii">…</span>
+}]</pre></div>
+
 <h2>
-<a name="getnut" class="anchor" href="#getnut"><span class="octicon octicon-link"></span></a>getNut</h2>
+<a id="getnut" class="anchor" href="#getnut" aria-hidden="true"><span class="octicon octicon-link"></span></a>getNut</h2>
 
 <p>Return detailed information and URLs of the nut (achievement) of the user.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNut</span><span class="p">({</span>
-    <span class="nx">n</span><span class="o">:</span> <span class="s1">'140'</span>
-<span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
+<div class="highlight highlight-Javascript"><pre>kcy.getNut({
+    n<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>140<span class="pl-pds">'</span></span>
+}, <span class="pl-s3">onError</span>, onSuccess);
 
-<span class="nx">kcy</span><span class="p">.</span><span class="nx">getNut</span><span class="p">({</span>
-    <span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span><span class="p">,</span>
-    <span class="nx">n</span><span class="o">:</span> <span class="s1">'140'</span>
-<span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+kcy.getNut({
+    u<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>,
+    n<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>140<span class="pl-pds">'</span></span>
+}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">{</span>
-    <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"140"</span><span class="p">,</span>
-    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Creator 10"</span><span class="p">,</span>
-    <span class="nt">"dateSince"</span><span class="p">:</span> <span class="s2">"2012-09-03"</span><span class="p">,</span>
-    <span class="nt">"history"</span><span class="p">:</span> <span class="s2">"This nut was proposed by &lt;a href=\"/kcy\"&gt;kcy&lt;/a&gt;. It was created on 03 sep 2012."</span><span class="p">,</span>
-    <span class="nt">"imageSmall"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png"</span><span class="p">,</span>
-    <span class="nt">"imageBig"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com/img-nuts/3d1c89f69382216508cdeb2a685a85336cd9d651.png"</span><span class="p">,</span>
-    <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"Life is a game and so is Karmacracy. We want you to keep having fun with us so we give you this Nut because you have shared 10 new kcys (new links in Karmacracy). Use this Cinexin to rekindle the moment."</span><span class="p">,</span>
-    <span class="nt">"flg_type"</span><span class="p">:</span> <span class="s2">"H"</span><span class="p">,</span>
-    <span class="nt">"level"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
-    <span class="nt">"nrKcys"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
-    <span class="nt">"nrMyKcys"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
-    <span class="nt">"nrHumans"</span><span class="p">:</span> <span class="s2">"2707"</span><span class="p">,</span>
-    <span class="nt">"humans"</span><span class="p">:</span> <span class="p">[{</span><span class="err">…</span><span class="p">}]</span>
-<span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-JSON"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>140<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>Creator 10<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>dateSince<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2012-09-03<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>history<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>This nut was proposed by &lt;a href=<span class="pl-cce">\"</span>/kcy<span class="pl-cce">\"</span>&gt;kcy&lt;/a&gt;. It was created on 03 sep 2012.<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>imageSmall<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://karmacracy.com/img-nuts/0b4beab1b0b6b273ae0ca0818b1b0d1a833edf38.png<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>imageBig<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://karmacracy.com/img-nuts/3d1c89f69382216508cdeb2a685a85336cd9d651.png<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>Life is a game and so is Karmacracy. We want you to keep having fun with us so we give you this Nut because you have shared 10 new kcys (new links in Karmacracy). Use this Cinexin to rekindle the moment.<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>flg_type<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>H<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>level<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>nrKcys<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>nrMyKcys<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>nrHumans<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2707<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>humans<span class="pl-pds">"</span></span>: [{<span class="pl-ii">…</span>}]
+}</pre></div>
 
 <h2>
-<a name="getnetworks" class="anchor" href="#getnetworks"><span class="octicon octicon-link"></span></a>getNetworks</h2>
+<a id="getnetworks" class="anchor" href="#getnetworks" aria-hidden="true"><span class="octicon octicon-link"></span></a>getNetworks</h2>
 
 <p>This method return an array with all user's networks</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getNetworks</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-<span class="nx">kcy</span><span class="p">.</span><span class="nx">getNetworks</span><span class="p">({</span> <span class="nx">u</span><span class="o">:</span> <span class="s1">'jorgecasar'</span> <span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getNetworks(<span class="pl-s3">onError</span>, onSuccess);
+kcy.getNetworks({ u<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span> }, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
-    <span class="nt">"connectid"</span><span class="p">:</span> <span class="s2">"connectID"</span><span class="p">,</span>
-    <span class="nt">"hidden"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">,</span>
-    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Jorge del Casar"</span><span class="p">,</span>
-    <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"FB"</span>
-<span class="p">},{</span>
-    <span class="err">…</span>
-<span class="p">}</span><span class="err">}</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getNetworks" class="requestForm">
-  <p><input type="submit" name="getNetworks_btn" value="Get user networks"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>[{
+    <span class="pl-s1"><span class="pl-pds">"</span>connectid<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>connectID<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>hidden<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>Jorge del Casar<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>type<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>FB<span class="pl-pds">"</span></span>
+},{
+    <span class="pl-ii">…</span>
+}<span class="pl-ii">}</span></pre></div>
+
 <h2>
-<a name="getfacebookpages" class="anchor" href="#getfacebookpages"><span class="octicon octicon-link"></span></a>getFacebookPages</h2>
+<a id="getfacebookpages" class="anchor" href="#getfacebookpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>getFacebookPages</h2>
 
 <p>Return an array with all Facebook Pages that the user is admin.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getFacebookPages</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getFacebookPages(<span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
-    <span class="nt">"access_token"</span><span class="p">:</span> <span class="s2">"ACCESS_TOKEN"</span><span class="p">,</span>
-    <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"FACEBOOK_PAGE_ID"</span><span class="p">,</span>
-    <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"Jorge del Casar - Desarrollo Frontend"</span>
-<span class="p">},{</span>
-    <span class="err">…</span>
-<span class="p">}]</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getFacebookPages" class="requestForm">
-  <p><input type="submit" name="getFacebookPages_btn" value="Get user Facebook Pages"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>[{
+    <span class="pl-s1"><span class="pl-pds">"</span>access_token<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>ACCESS_TOKEN<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>FACEBOOK_PAGE_ID<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>Jorge del Casar - Desarrollo Frontend<span class="pl-pds">"</span></span>
+},{
+    <span class="pl-ii">…</span>
+}]</pre></div>
+
 <h2>
-<a name="getdomains" class="anchor" href="#getdomains"><span class="octicon octicon-link"></span></a>getDomains</h2>
+<a id="getdomains" class="anchor" href="#getdomains" aria-hidden="true"><span class="octicon octicon-link"></span></a>getDomains</h2>
 
 <p>Returns the list of user's domains ranking ordered by the user within the domain.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getDomains</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-<span class="nx">kcy</span><span class="p">.</span><span class="nx">getDomains</span><span class="p">({</span><span class="nx">u</span><span class="o">:</span><span class="s1">'jorgecasar'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getDomains(<span class="pl-s3">onError</span>, onSuccess);
+kcy.getDomains({u<span class="pl-k">:</span><span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
-    <span class="nt">"clicks"</span><span class="p">:</span> <span class="s2">"246"</span><span class="p">,</span>
-    <span class="nt">"domain"</span><span class="p">:</span> <span class="s2">"developer.blackberry.com"</span><span class="p">,</span>
-    <span class="nt">"numPersonas"</span><span class="p">:</span> <span class="s2">"5"</span><span class="p">,</span>
-    <span class="nt">"rank"</span><span class="p">:</span> <span class="s2">"1"</span>
-<span class="p">},{</span>
-    <span class="err">…</span>
-<span class="p">}]</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getDomains" class="requestForm">
-  <p>
-    <label for="getDomains_userName">User name:</label>
-    <input id="getDomains_userName" type="text" name="userName" value="" placeholder="userName">
-  </p>
-  <p><input type="submit" name="getDomains_btn" value="Get Domains"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>[{
+    <span class="pl-s1"><span class="pl-pds">"</span>clicks<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>246<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>domain<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>developer.blackberry.com<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>numPersonas<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>5<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>rank<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>
+},{
+    <span class="pl-ii">…</span>
+}]</pre></div>
+
 <h2>
-<a name="getkcys" class="anchor" href="#getkcys"><span class="octicon octicon-link"></span></a>getKcys</h2>
+<a id="getkcys" class="anchor" href="#getkcys" aria-hidden="true"><span class="octicon octicon-link"></span></a>getKcys</h2>
 
 <p>Allows you to view, search and explore all kcys in Karmacracy.com.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKcys</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-<span class="nx">kcy</span><span class="p">.</span><span class="nx">getKcys</span><span class="p">({</span><span class="nx">u</span><span class="o">:</span><span class="s1">'jorgecasar'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getKcys(<span class="pl-s3">onError</span>, onSuccess);
+kcy.getKcys({u<span class="pl-k">:</span><span class="pl-s1"><span class="pl-pds">'</span>jorgecasar<span class="pl-pds">'</span></span>}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
-    <span class="nt">"id"</span><span class="p">:</span> <span class="s2">"qt36"</span><span class="p">,</span>
-    <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html"</span><span class="p">,</span>
-    <span class="nt">"title"</span><span class="p">:</span> <span class="s2">"Socializando enlaces y contenidos con Karmacracy"</span><span class="p">,</span>
-    <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"&amp;nbsp;Entrevistamos a Álex Dolara, fundador de Karmacracy, una startup española, dedicada a compartir contenidos y acortar enlaces con una capa social."</span><span class="p">,</span>
-    <span class="nt">"imgUser"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com/img/kcylocke.png"</span><span class="p">,</span>
-    <span class="nt">"image"</span><span class="p">:</span> <span class="s2">"http://images.eldiario.es/turing/Alex-Dolara_EDIIMA20130828_0074_6.jpg"</span><span class="p">,</span>
-    <span class="nt">"time"</span><span class="p">:</span> <span class="s2">"2013-08-29 07:32:21"</span><span class="p">,</span>
-    <span class="nt">"user"</span><span class="p">:</span> <span class="s2">"agileando"</span><span class="p">,</span>
-    <span class="nt">"clicks"</span><span class="p">:</span> <span class="s2">"205"</span><span class="p">,</span>
-    <span class="nt">"weight"</span><span class="p">:</span> <span class="s2">"205"</span><span class="p">,</span>
-    <span class="nt">"people"</span><span class="p">:</span> <span class="p">[</span><span class="err">…</span><span class="p">]</span>
-<span class="p">},{</span>
-    <span class="err">…</span>
-<span class="p">}]</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getKcys" class="requestForm">
-  <p>
-    <label for="getKcys_userName">User name:</label>
-    <input id="getKcys_userName" type="text" name="userName" value="" placeholder="userName">
-  </p>
-  <p><input type="submit" name="getKcys_btn" value="Get Kcys"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>[{
+    <span class="pl-s1"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>qt36<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>url<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>title<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>Socializando enlaces y contenidos con Karmacracy<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>&amp;nbsp;Entrevistamos a Álex Dolara, fundador de Karmacracy, una startup española, dedicada a compartir contenidos y acortar enlaces con una capa social.<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>imgUser<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://karmacracy.com/img/kcylocke.png<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>image<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://images.eldiario.es/turing/Alex-Dolara_EDIIMA20130828_0074_6.jpg<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>time<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2013-08-29 07:32:21<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>user<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>agileando<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>clicks<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>205<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>weight<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>205<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>people<span class="pl-pds">"</span></span>: [<span class="pl-ii">…</span>]
+},{
+    <span class="pl-ii">…</span>
+}]</pre></div>
+
 <h2>
-<a name="getkcy" class="anchor" href="#getkcy"><span class="octicon octicon-link"></span></a>getKcy</h2>
+<a id="getkcy" class="anchor" href="#getkcy" aria-hidden="true"><span class="octicon octicon-link"></span></a>getKcy</h2>
 
 <p>Get a kcy detailed information, statistics and human trafficking that have shared.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getKcys</span><span class="p">({</span><span class="nx">kcy</span><span class="o">:</span><span class="s1">'qt36'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getKcys({kcy<span class="pl-k">:</span><span class="pl-s1"><span class="pl-pds">'</span>qt36<span class="pl-pds">'</span></span>}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">{</span>
-    <span class="nt">"shorturl"</span><span class="p">:</span> <span class="s2">"qt36"</span><span class="p">,</span>
-    <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html"</span><span class="p">,</span>
-    <span class="nt">"date"</span><span class="p">:</span> <span class="s2">"2013-08-29 07:32:21"</span><span class="p">,</span>
-    <span class="nt">"kcyedhumans"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
-    <span class="nt">"kclicks"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="nt">"mykclicks"</span><span class="p">:</span> <span class="s2">"17"</span><span class="p">,</span>
-    <span class="nt">"mykcytype"</span><span class="p">:</span> <span class="s2">"2"</span><span class="p">,</span>
-    <span class="nt">"traffic"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getKcy" class="requestForm">
-  <p>
-    <label for="getKcy_kcy">Kcy:</label>
-    <input id="getKcy_kcy" type="text" name="kcy" value="" placeholder="cky">
-  </p>
-  <p><input type="submit" name="getKcy_btn" value="Get Kcy details"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>shorturl<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>qt36<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>url<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://www.eldiario.es/turing/Socializando-enlaces-contenidos-Karmacracy_0_169383125.html<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>date<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2013-08-29 07:32:21<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>kcyedhumans<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>},
+    <span class="pl-s1"><span class="pl-pds">"</span>kclicks<span class="pl-pds">"</span></span>: <span class="pl-c1">null</span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>mykclicks<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>17<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>mykcytype<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>traffic<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>}
+}</pre></div>
+
 <h2>
-<a name="getrank" class="anchor" href="#getrank"><span class="octicon octicon-link"></span></a>getRank</h2>
+<a id="getrank" class="anchor" href="#getrank" aria-hidden="true"><span class="octicon octicon-link"></span></a>getRank</h2>
 
 <p>View and explore the global and instantaneous kcyrank.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getRank</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-<span class="c1">// Get the instantaneous rank from position 40th.</span>
-<span class="nx">kcy</span><span class="p">.</span><span class="nx">getRank</span><span class="p">({</span>
-    <span class="nx">now</span><span class="o">:</span><span class="mi">1</span><span class="p">,</span>
-    <span class="nx">from</span><span class="o">:</span><span class="mi">40</span>
-<span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getRank(<span class="pl-s3">onError</span>, onSuccess);
+<span class="pl-c">// Get the instantaneous rank from position 40th.</span>
+kcy.getRank({
+    now<span class="pl-k">:</span><span class="pl-c1">1</span>,
+    from<span class="pl-k">:</span><span class="pl-c1">40</span>
+}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an array like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">[{</span>
-    <span class="nt">"username"</span><span class="p">:</span> <span class="s2">"elandroidelibre"</span><span class="p">,</span>
-    <span class="nt">"kcyrank"</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
-    <span class="nt">"img"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com/img-users/114.jpg"</span><span class="p">,</span>
-    <span class="nt">"totalawards"</span><span class="p">:</span> <span class="s2">"9384"</span>
-<span class="p">},{</span>
-    <span class="err">…</span>
-<span class="p">}]</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getRank" class="requestForm">
-  <p>
-    <input id="getRank_now_global" type="radio" name="now" value="0" checked>
-    <label for="getRank_now_global">Global</label>
-    <input id="getRank_now_instantaneous" type="radio" name="now" value="1">
-    <label for="getRank_now_instantaneous">Instantaneous</label>
-  </p>
-  <p>
-    <label for="getRank_from">From: </label>
-    <input id="getRank_from" type="number" name="from" value="1">
-  </p>
-  <p><input type="submit" name="getRank_btn" value="Get Rank"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>[{
+    <span class="pl-s1"><span class="pl-pds">"</span>username<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>elandroidelibre<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>kcyrank<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>img<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://karmacracy.com/img-users/114.jpg<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>totalawards<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>9384<span class="pl-pds">"</span></span>
+},{
+    <span class="pl-ii">…</span>
+}]</pre></div>
+
 <h2>
-<a name="getstatsevolution" class="anchor" href="#getstatsevolution"><span class="octicon octicon-link"></span></a>getStatsEvolution</h2>
+<a id="getstatsevolution" class="anchor" href="#getstatsevolution" aria-hidden="true"><span class="octicon octicon-link"></span></a>getStatsEvolution</h2>
 
 <p>Returns the statistics of the evolution of a user in the last 30 days.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getStatsEvolution</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getStatsEvolution(<span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">{</span>
+<div class="highlight highlight-JSON"><pre>{
 
-    <span class="nt">"links_evolution"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
-    <span class="nt">"koi_evolution"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
-    <span class="nt">"rank_evolution"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
-    <span class="nt">"clicks_evolution"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
-    <span class="nt">"virgin_vs_burned"</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">"virgin"</span><span class="p">:</span> <span class="s2">"128"</span><span class="p">,</span>
-        <span class="nt">"total"</span><span class="p">:</span> <span class="s2">"154"</span><span class="p">,</span>
-        <span class="nt">"burned"</span><span class="p">:</span> <span class="mi">26</span>
-    <span class="p">},</span>
-    <span class="nt">"kclicks"</span><span class="p">:</span> <span class="s2">"4357.64"</span><span class="p">,</span>
-    <span class="nt">"kcys"</span><span class="p">:</span> <span class="s2">"118"</span>
-<span class="p">}</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getStatsEvolution" class="requestForm">
-  <p><input type="submit" name="getStatsEvolution_btn" value="Get stats evolution"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+    <span class="pl-s1"><span class="pl-pds">"</span>links_evolution<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>},
+    <span class="pl-s1"><span class="pl-pds">"</span>koi_evolution<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>},
+    <span class="pl-s1"><span class="pl-pds">"</span>rank_evolution<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>},
+    <span class="pl-s1"><span class="pl-pds">"</span>clicks_evolution<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>},
+    <span class="pl-s1"><span class="pl-pds">"</span>virgin_vs_burned<span class="pl-pds">"</span></span>: {
+        <span class="pl-s1"><span class="pl-pds">"</span>virgin<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>128<span class="pl-pds">"</span></span>,
+        <span class="pl-s1"><span class="pl-pds">"</span>total<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>154<span class="pl-pds">"</span></span>,
+        <span class="pl-s1"><span class="pl-pds">"</span>burned<span class="pl-pds">"</span></span>: <span class="pl-c1">26</span>
+    },
+    <span class="pl-s1"><span class="pl-pds">"</span>kclicks<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>4357.64<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>kcys<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>118<span class="pl-pds">"</span></span>
+}</pre></div>
+
 <h2>
-<a name="getstatsrelevance" class="anchor" href="#getstatsrelevance"><span class="octicon octicon-link"></span></a>getStatsRelevance</h2>
+<a id="getstatsrelevance" class="anchor" href="#getstatsrelevance" aria-hidden="true"><span class="octicon octicon-link"></span></a>getStatsRelevance</h2>
 
 <p>Returns the statistics of the relevance of a user in the last 30 days (default), 7 days or 24 hours.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getStatsRelevance</span><span class="p">(</span><span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getStatsRelevance(<span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">{</span>
-    <span class="nt">"hours"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
-    <span class="nt">"kclicks"</span><span class="p">:</span> <span class="s2">"4357.64"</span><span class="p">,</span>
-    <span class="nt">"kcys"</span><span class="p">:</span> <span class="s2">"118"</span><span class="p">,</span>
-    <span class="nt">"koi"</span><span class="p">:</span> <span class="mf">36.929152542373</span><span class="p">,</span>
-    <span class="nt">"social"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">},</span>
-    <span class="nt">"week"</span><span class="p">:</span> <span class="p">{</span><span class="err">…</span><span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="getStatsRelevance" class="requestForm">
-  <p><input type="submit" name="getStatsRelevance_btn" value="Get stats relevance"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>hours<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>},
+    <span class="pl-s1"><span class="pl-pds">"</span>kclicks<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>4357.64<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>kcys<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>118<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>koi<span class="pl-pds">"</span></span>: <span class="pl-c1">36.929152542373</span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>social<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>},
+    <span class="pl-s1"><span class="pl-pds">"</span>week<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>}
+}</pre></div>
 
 <h2>
-<a name="shortlink" class="anchor" href="#shortlink"><span class="octicon octicon-link"></span></a>shortLink</h2>
+<a id="shortlink" class="anchor" href="#shortlink" aria-hidden="true"><span class="octicon octicon-link"></span></a>shortLink</h2>
 
 <p>You can short a link using kcy.me, the Karmacracy.com shortener.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">shortLink</span><span class="p">({</span><span class="nx">url</span><span class="o">:</span> <span class="s1">'http://karmacracy.com'</span><span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.shortLink({url<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>http://karmacracy.com<span class="pl-pds">'</span></span>}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">{</span>
-    <span class="nt">"long_url"</span><span class="p">:</span> <span class="s2">"http://karmacracy.com"</span><span class="p">,</span>
-    <span class="nt">"url"</span><span class="p">:</span> <span class="s2">"http://kcy.me/nlr8"</span><span class="p">,</span>
-    <span class="nt">"hash"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="nt">"global_hash"</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-    <span class="nt">"new_hash"</span><span class="p">:</span> <span class="mi">0</span>
-<span class="p">}</span>
-</pre></div>
-<h3>Demo</h3>
-<form id="shortLink" class="requestForm">
-  <p>
-    <label for="shortLink_url">Url: </label>
-    <input id="shortLink_url" type="url" name="url" value="" placeholder="http://karmacracy.com">
-  </p>
-  <p><input type="submit" name="shortLink_btn" value="Short Link"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>{
+    <span class="pl-s1"><span class="pl-pds">"</span>long_url<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://karmacracy.com<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>url<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>http://kcy.me/nlr8<span class="pl-pds">"</span></span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>hash<span class="pl-pds">"</span></span>: <span class="pl-c1">null</span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>global_hash<span class="pl-pds">"</span></span>: <span class="pl-c1">null</span>,
+    <span class="pl-s1"><span class="pl-pds">"</span>new_hash<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>
+}</pre></div>
+
 <h2>
-<a name="sharekcy" class="anchor" href="#sharekcy"><span class="octicon octicon-link"></span></a>shareKcy</h2>
+<a id="sharekcy" class="anchor" href="#sharekcy" aria-hidden="true"><span class="octicon octicon-link"></span></a>shareKcy</h2>
 
 <p>Share a kcy through user networks. Before use it you have to short it and get the user's networks.</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">shareKcy</span><span class="p">({</span>
-    <span class="nx">txt</span><span class="o">:</span> <span class="s1">'Text to send to the social network of choice.'</span><span class="p">,</span>
-    <span class="nx">kcy</span><span class="o">:</span> <span class="s1">'nlr8'</span><span class="p">,</span>
-    <span class="c1">// Network identifier, composed as follows:</span>
-    <span class="c1">// RR_IDCONNECT, being 'RR' property 'type' network, and being IDCONNECT property 'connectId'.</span>
-    <span class="nx">where</span><span class="o">:</span> <span class="s1">'RR_IDCONNECT'</span>
-<span class="p">},</span> <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.shareKcy({
+    txt<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>Text to send to the social network of choice.<span class="pl-pds">'</span></span>,
+    kcy<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>nlr8<span class="pl-pds">'</span></span>,
+    <span class="pl-c">// Network identifier, composed as follows:</span>
+    <span class="pl-c">// RR_IDCONNECT, being 'RR' property 'type' network, and being IDCONNECT property 'connectId'.</span>
+    where<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>RR_IDCONNECT<span class="pl-pds">'</span></span>
+}, <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="p">{</span><span class="nt">"result"</span><span class="p">:</span> <span class="s2">"0"</span><span class="p">}</span> 
-</pre></div>
-<h3>Demo</h3>
-<form id="shareLink" class="requestForm">
-  <p>
-    <label for="shareLink_txt">Text: </label>
-    <textarea id="shareLink_txt" type="url" name="txt" placeholder="Text to share in your networks">Trying Karmacracy Javascript API • http://kcy.me/</textarea></p>
-  <p>
-    <label for="shareLink_kcy">Kcy: </label>
-    <input id="shareLink_kcy" type="text" name="kcy" value="" placeholder="kcy">
-  </p>
-  <p>
-    <label for="shareLink_where">Where:</label>
-    <select id="shareLink_where" name="where">
-      <option value="">No networks</option>
-    </select>
-    <input type="button" name="getNetworks_btn" id="shareLink_getNetworks" value="Get user networks">
-  </p>
-  <p><input type="submit" name="shortLink_btn" value="Share Link"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
+<div class="highlight highlight-JSON"><pre>{<span class="pl-s1"><span class="pl-pds">"</span>result<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>} </pre></div>
+
 <h2>
-<a name="getfirewords" class="anchor" href="#getfirewords"><span class="octicon octicon-link"></span></a>getFirewords</h2>
+<a id="getfirewords" class="anchor" href="#getfirewords" aria-hidden="true"><span class="octicon octicon-link"></span></a>getFirewords</h2>
 
 <p>Gets the list of the firewords on the Karmacracy portal:</p>
 
-<div class="highlight highlight-Javascript"><pre><span class="nx">kcy</span><span class="p">.</span><span class="nx">getFirewords</span><span class="p">({</span> 
-    <span class="nx">num</span><span class="o">:</span> <span class="s1">'30'</span> <span class="c1">//number of firewords to get</span>
-<span class="p">},</span>
- <span class="nx">onError</span><span class="p">,</span> <span class="nx">onSuccess</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-Javascript"><pre>kcy.getFirewords({ 
+    num<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>30<span class="pl-pds">'</span></span> <span class="pl-c">//number of firewords to get</span>
+},
+ <span class="pl-s3">onError</span>, onSuccess);</pre></div>
 
 <p>If all was right you get an object like this:</p>
 
-<div class="highlight highlight-JSON"><pre><span class="s2">"word"</span><span class="err">:</span> <span class="p">[</span>
-    <span class="p">[</span>
-        <span class="s2">"celebro"</span><span class="p">,</span>
-        <span class="s2">"10"</span><span class="p">,</span>
-        <span class="s2">"1"</span><span class="p">,</span>
-        <span class="s2">"10.0000"</span>
-    <span class="p">],</span>
-<span class="p">]</span>
-</pre></div>
-
-<h3>Demo</h3>
-<form id="getFirewords" class="requestForm">
-  <p>
-    <label for="getFirewords_from">Number of firewords: </label>
-    <input id="get_num" type="number" name="num" value="1">
-  </p>
-  <p><input type="submit" name="getFirewords_btn" value="Get Firewords"></p>
-  <h4>Result</h4>
-  <pre class="output"></pre>
-</form>
-
+<div class="highlight highlight-JSON"><pre><span class="pl-s1"><span class="pl-pds">"</span>word<span class="pl-pds">"</span></span>: [
+    [
+        <span class="pl-s1"><span class="pl-pds">"</span>celebro<span class="pl-pds">"</span></span>,
+        <span class="pl-s1"><span class="pl-pds">"</span>10<span class="pl-pds">"</span></span>,
+        <span class="pl-s1"><span class="pl-pds">"</span>1<span class="pl-pds">"</span></span>,
+        <span class="pl-s1"><span class="pl-pds">"</span>10.0000<span class="pl-pds">"</span></span>
+    ],
+]</pre></div>
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
-    <script src="javascripts/libs/karmacracy-javascript-api/dist/karmacracy-javascript-api.js"></script>
-    <script src="javascripts/demo.js"></script>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 		          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
