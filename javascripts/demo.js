@@ -14,21 +14,28 @@ var app = (function(k){
 			var userName = form.userName.value;
 			var userKey = form.userKey.value;
 			k.setUser(userName, userKey);
-			k.checkKey(that.onError, function(data){
-				if( data.ok ){
-					form.style.display = 'none';
-					var setup_done = document.getElementById('setupDone');
-					var results = setup_done.querySelectorAll('strong');
-					results[0].innerHTML = userName;
-					results[1].innerHTML = userKey;
-					setup_done.style.display = 'block';
-					var inputs_userName = document.querySelectorAll('input[name="userName"]');
-					for (var i = inputs_userName.length-1; i >= 0; i--)
-					{
-						inputs_userName[i].value = userName;
+			k.checkKey(function(error, data){
+				if( error )
+				{
+					that.onError(error, data)
+				}
+				else
+				{
+					if( data.ok ){
+						form.style.display = 'none';
+						var setup_done = document.getElementById('setupDone');
+						var results = setup_done.querySelectorAll('strong');
+						results[0].innerHTML = userName;
+						results[1].innerHTML = userKey;
+						setup_done.style.display = 'block';
+						var inputs_userName = document.querySelectorAll('input[name="userName"]');
+						for (var i = inputs_userName.length-1; i >= 0; i--)
+						{
+							inputs_userName[i].value = userName;
+						}
+					} else {
+						alert('The pair userName and userKey are not correct');
 					}
-				} else {
-					alert('The pair userName and userKey are not correct');
 				}
 			});
 		}, false);
@@ -79,10 +86,16 @@ var app = (function(k){
 				select.innerHTML = options.join('\n');
 			}
 			k.getNetworks(
-				function(data){
-					that.onError(button.form, data);
-				},
-				onSuccess
+				function(error, data){
+					if( error )
+					{
+						that.onError(button.form, data);
+					}
+					else
+					{
+						onSuccess(data)
+					}
+				}
 			);
 
 		}, false);
