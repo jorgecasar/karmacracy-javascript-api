@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/extras.css">
     <script src="javascripts/scale.fix.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -72,6 +73,17 @@ kcy.setUserKey(<span class="pl-s1"><span class="pl-pds">'</span>userKey<span cla
 <p>If you want to do this in one simple line</p>
 
 <div class="highlight highlight-Javascript"><pre>kcy.setUser(<span class="pl-s1"><span class="pl-pds">'</span>userName<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>userKey<span class="pl-pds">'</span></span>);</pre></div>
+
+<h3>Demo</h3>
+<form id="setup">
+  <p><label for="setup_userName">User name: <input id="setup_userName" type="text" name="userName" value="" placeholder="userName" required></label></p>
+  <p><label for="setup_userKey">User key: <input id="setup_userKey" type="text" name="userKey" value="" placeholder="userKey" required></label></p>
+  <p><input type="submit" name="setup_btn" value="Set up"></p>
+</form>
+<div id="setupDone" style="display:none;">
+  <p>User name: <strong></strong></p>
+  <p>User key: <strong></strong></p>
+</div>
 
 <h1>
 <a id="methods" class="anchor" href="#methods" aria-hidden="true"><span class="octicon octicon-link"></span></a>Methods</h1>
@@ -162,6 +174,15 @@ kcy.getUserInfo({u<span class="pl-k">:</span> <span class="pl-s1"><span class="p
     <span class="pl-s1"><span class="pl-pds">"</span>kcys<span class="pl-pds">"</span></span>: []
 }</pre></div>
 
+<h3>Demo</h3>
+<form id="getUserInfo" class="requestForm">
+  <p><label for="getUserInfo_userName">User name: <input id="getUserInfo_userName" type="text" name="userName" value="" placeholder="userName"></label></p>
+  <p><input type="submit" name="getUserInfo_btn" value="Get user info"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
+
 <h2>
 <a id="getnuts" class="anchor" href="#getnuts" aria-hidden="true"><span class="octicon octicon-link"></span></a>getNuts</h2>
 
@@ -183,6 +204,28 @@ kcy.getNuts({u<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pd
 },{
     <span class="pl-ii">…</span>
 }]</pre></div>
+
+<h3>Demo</h3>
+<form id="getNuts" class="requestForm">
+  <p>
+    <label for="getNuts_userName">User name:</label>
+    <input id="getNuts_userName" type="text" name="userName" value="" placeholder="userName">
+  </p>
+  <p>
+    <label for="getNuts_userName">User name:</label>
+    <select id="getNuts_userName" name="nutType">
+      <option value="A">All</option>
+      <option value="H">Humans</option>
+      <option value="K">Karmacracy</option>
+      <option value="E">Experience</option>
+      <option value="S">Sponsored</option>
+    </select>
+  </p>
+  <p><input type="submit" name="getNuts_btn" value="Get nuts"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
 
 <h2>
 <a id="getnut" class="anchor" href="#getnut" aria-hidden="true"><span class="octicon octicon-link"></span></a>getNut</h2>
@@ -235,6 +278,13 @@ kcy.getNetworks({ u<span class="pl-k">:</span> <span class="pl-s1"><span class="
     <span class="pl-ii">…</span>
 }<span class="pl-ii">}</span></pre></div>
 
+<h3>Demo</h3>
+<form id="getNetworks" class="requestForm">
+  <p><input type="submit" name="getNetworks_btn" value="Get user networks"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
 <h2>
 <a id="getfacebookpages" class="anchor" href="#getfacebookpages" aria-hidden="true"><span class="octicon octicon-link"></span></a>getFacebookPages</h2>
 
@@ -251,6 +301,13 @@ kcy.getNetworks({ u<span class="pl-k">:</span> <span class="pl-s1"><span class="
 },{
     <span class="pl-ii">…</span>
 }]</pre></div>
+
+<h3>Demo</h3>
+<form id="getFacebookPages" class="requestForm">
+  <p><input type="submit" name="getFacebookPages_btn" value="Get user Facebook Pages"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 
 <h2>
 <a id="getdomains" class="anchor" href="#getdomains" aria-hidden="true"><span class="octicon octicon-link"></span></a>getDomains</h2>
@@ -270,6 +327,17 @@ kcy.getDomains({u<span class="pl-k">:</span><span class="pl-s1"><span class="pl-
 },{
     <span class="pl-ii">…</span>
 }]</pre></div>
+
+<h3>Demo</h3>
+<form id="getDomains" class="requestForm">
+  <p>
+    <label for="getDomains_userName">User name:</label>
+    <input id="getDomains_userName" type="text" name="userName" value="" placeholder="userName">
+  </p>
+  <p><input type="submit" name="getDomains_btn" value="Get Domains"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 
 <h2>
 <a id="getkcys" class="anchor" href="#getkcys" aria-hidden="true"><span class="octicon octicon-link"></span></a>getKcys</h2>
@@ -297,6 +365,17 @@ kcy.getKcys({u<span class="pl-k">:</span><span class="pl-s1"><span class="pl-pds
     <span class="pl-ii">…</span>
 }]</pre></div>
 
+<h3>Demo</h3>
+<form id="getKcys" class="requestForm">
+  <p>
+    <label for="getKcys_userName">User name:</label>
+    <input id="getKcys_userName" type="text" name="userName" value="" placeholder="userName">
+  </p>
+  <p><input type="submit" name="getKcys_btn" value="Get Kcys"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
 <h2>
 <a id="getkcy" class="anchor" href="#getkcy" aria-hidden="true"><span class="octicon octicon-link"></span></a>getKcy</h2>
 
@@ -316,6 +395,17 @@ kcy.getKcys({u<span class="pl-k">:</span><span class="pl-s1"><span class="pl-pds
     <span class="pl-s1"><span class="pl-pds">"</span>mykcytype<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>2<span class="pl-pds">"</span></span>,
     <span class="pl-s1"><span class="pl-pds">"</span>traffic<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>}
 }</pre></div>
+
+<h3>Demo</h3>
+<form id="getKcy" class="requestForm">
+  <p>
+    <label for="getKcy_kcy">Kcy:</label>
+    <input id="getKcy_kcy" type="text" name="kcy" value="" placeholder="cky">
+  </p>
+  <p><input type="submit" name="getKcy_btn" value="Get Kcy details"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 
 <h2>
 <a id="getrank" class="anchor" href="#getrank" aria-hidden="true"><span class="octicon octicon-link"></span></a>getRank</h2>
@@ -339,6 +429,23 @@ kcy.getRank({
 },{
     <span class="pl-ii">…</span>
 }]</pre></div>
+
+<h3>Demo</h3>
+<form id="getRank" class="requestForm">
+  <p>
+    <input id="getRank_now_global" type="radio" name="now" value="0" checked>
+    <label for="getRank_now_global">Global</label>
+    <input id="getRank_now_instantaneous" type="radio" name="now" value="1">
+    <label for="getRank_now_instantaneous">Instantaneous</label>
+  </p>
+  <p>
+    <label for="getRank_from">From: </label>
+    <input id="getRank_from" type="number" name="from" value="1">
+  </p>
+  <p><input type="submit" name="getRank_btn" value="Get Rank"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 
 <h2>
 <a id="getstatsevolution" class="anchor" href="#getstatsevolution" aria-hidden="true"><span class="octicon octicon-link"></span></a>getStatsEvolution</h2>
@@ -364,6 +471,13 @@ kcy.getRank({
     <span class="pl-s1"><span class="pl-pds">"</span>kcys<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>118<span class="pl-pds">"</span></span>
 }</pre></div>
 
+<h3>Demo</h3>
+<form id="getStatsEvolution" class="requestForm">
+  <p><input type="submit" name="getStatsEvolution_btn" value="Get stats evolution"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
 <h2>
 <a id="getstatsrelevance" class="anchor" href="#getstatsrelevance" aria-hidden="true"><span class="octicon octicon-link"></span></a>getStatsRelevance</h2>
 
@@ -382,6 +496,13 @@ kcy.getRank({
     <span class="pl-s1"><span class="pl-pds">"</span>week<span class="pl-pds">"</span></span>: {<span class="pl-ii">…</span>}
 }</pre></div>
 
+<h3>Demo</h3>
+<form id="getStatsRelevance" class="requestForm">
+  <p><input type="submit" name="getStatsRelevance_btn" value="Get stats relevance"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
 <h2>
 <a id="shortlink" class="anchor" href="#shortlink" aria-hidden="true"><span class="octicon octicon-link"></span></a>shortLink</h2>
 
@@ -399,6 +520,17 @@ kcy.getRank({
     <span class="pl-s1"><span class="pl-pds">"</span>new_hash<span class="pl-pds">"</span></span>: <span class="pl-c1">0</span>
 }</pre></div>
 
+<h3>Demo</h3>
+<form id="shortLink" class="requestForm">
+  <p>
+    <label for="shortLink_url">Url: </label>
+    <input id="shortLink_url" type="url" name="url" value="" placeholder="http://karmacracy.com">
+  </p>
+  <p><input type="submit" name="shortLink_btn" value="Short Link"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
 <h2>
 <a id="sharekcy" class="anchor" href="#sharekcy" aria-hidden="true"><span class="octicon octicon-link"></span></a>shareKcy</h2>
 
@@ -415,6 +547,27 @@ kcy.getRank({
 <p>If all was right you get an object like this:</p>
 
 <div class="highlight highlight-JSON"><pre>{<span class="pl-s1"><span class="pl-pds">"</span>result<span class="pl-pds">"</span></span>: <span class="pl-s1"><span class="pl-pds">"</span>0<span class="pl-pds">"</span></span>} </pre></div>
+
+<h3>Demo</h3>
+<form id="shareLink" class="requestForm">
+  <p>
+    <label for="shareLink_txt">Text: </label>
+    <textarea id="shareLink_txt" type="url" name="txt" placeholder="Text to share in your networks">Trying Karmacracy Javascript API • http://kcy.me/</textarea></p>
+  <p>
+    <label for="shareLink_kcy">Kcy: </label>
+    <input id="shareLink_kcy" type="text" name="kcy" value="" placeholder="kcy">
+  </p>
+  <p>
+    <label for="shareLink_where">Where:</label>
+    <select id="shareLink_where" name="where">
+      <option value="">No networks</option>
+    </select>
+    <input type="button" name="getNetworks_btn" id="shareLink_getNetworks" value="Get user networks">
+  </p>
+  <p><input type="submit" name="shortLink_btn" value="Share Link"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
 
 <h2>
 <a id="getfirewords" class="anchor" href="#getfirewords" aria-hidden="true"><span class="octicon octicon-link"></span></a>getFirewords</h2>
@@ -436,11 +589,26 @@ kcy.getRank({
         <span class="pl-s1"><span class="pl-pds">"</span>10.0000<span class="pl-pds">"</span></span>
     ],
 ]</pre></div>
+
+<h3>Demo</h3>
+<form id="getFirewords" class="requestForm">
+  <p>
+    <label for="getFirewords_from">Number of firewords: </label>
+    <input id="get_num" type="number" name="num" value="1">
+  </p>
+  <p><input type="submit" name="getFirewords_btn" value="Get Firewords"></p>
+  <h4>Result</h4>
+  <pre class="output"></pre>
+</form>
+
       </section>
       <footer>
         <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
     </div>
+    <script src="javascripts/libs/karmacracy-javascript-api/dist/karmacracy-javascript-api.js"></script>
+    <script src="javascripts/demo.js"></script>
+
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 		          <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
