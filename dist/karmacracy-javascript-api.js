@@ -1,4 +1,4 @@
-/*! karmacracy-javascript-api - v0.1.0 - 2014-12-09
+/*! karmacracy-javascript-api - v0.1.1 - 2014-12-09
 * http://jorgecasar.github.io/karmacracy-javascript-api/
 * Copyright (c) 2014 Jorge del Casar; Licensed  */
 // Uses AMD or browser globals to create a module.
