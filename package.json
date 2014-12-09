@@ -12,7 +12,8 @@
   },
   "main": "dist/karmacracy-javascript-api.min.js",
   "scripts": {
-    "test": "mocha --recursive --timeout 50000 -R spec --bail"
+    "test": "mocha --recursive --timeout 50000 -R spec --bail",
+    "test-travis": "node ./node_modules/mocha/bin/_mocha --recursive --timeout 50000 -R spec --bail"
   },
   "repository": {
     "type": "git",
@@ -23,12 +24,12 @@
   },
   "devDependencies": {
     "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-mocha-test": "~0.7.0",
-    "matchdep": "~0.1.2",
+    "grunt-mocha-test": "^0.12.4",
+    "matchdep": "^0.3.0",
     "mocha": "^2.0.1"
   }
 }
