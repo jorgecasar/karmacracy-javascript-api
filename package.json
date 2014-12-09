@@ -1,6 +1,6 @@
 {
   "name": "karmacracy-javascript-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A Javascript wrapper for Karmacracy API.",
   "homepage": "http://jorgecasar.github.io/karmacracy-javascript-api/",
   "keywords": [

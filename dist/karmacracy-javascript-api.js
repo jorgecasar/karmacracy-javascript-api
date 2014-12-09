@@ -1,4 +1,4 @@
-/*! karmacracy-javascript-api - v0.1.1 - 2014-12-09
+/*! karmacracy-javascript-api - v0.1.2 - 2014-12-09
 * http://jorgecasar.github.io/karmacracy-javascript-api/
 * Copyright (c) 2014 Jorge del Casar; Licensed  */
 // Uses AMD or browser globals to create a module.
@@ -79,13 +79,20 @@
 
 				if ( xhr.readyState === 4 )
 				{
-					if ( xhr.status === 200 )
+					if ( xhr.status < 400 )
 					{
 						var response = _parseResponse(method, xhr);
 						if( response && typeof callback === 'function')
 						{
 							callback(null, response);
 						}
+					}
+					else
+					{
+						callback({
+							status: xhr.status,
+							statusText: xhr.statusText
+						}, null);
 					}
 				}
 			};

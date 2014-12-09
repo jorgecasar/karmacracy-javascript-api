@@ -87,9 +87,9 @@ You can recover the key asking for the user's name and password.
 kcy.getKey({
 	u: 'jorgecasar',
 	p: 'jorgecasarPassword'
-}, onError, onSuccess);
+}, callback);
 ```
-You can manage the error or success with the callbacks. If all went well you receive an object like this:
+The callback follow the nodeJS convention reserving the first parameter of the callback for an optional error object. If all went well you receive an object like this as second parameter:
 ```Javascript
 {error: 0, key: 'userKey'}
 ```
@@ -100,27 +100,30 @@ You can regenerate the userKey of the user asking for the user's name and passwo
 kcy.getNewKey({
 	u: 'jorgecasar',
 	p: 'jorgecasarPassword'
-}, onError, onSuccess);
+}, callback);
 ```
-You can manage the error or success with the callbacks. If all went well you receive an object like this: ```{error: 0, key: 'userNewKey'}```
+The callback follow the nodeJS convention reserving the first parameter of the callback for an optional error object. If all went well you receive an object like this as second parameter:
+```Javascrit
+{error: 0, key: 'userNewKey'}
+```
 
 ## checkKey
 Allows to know whether the user and the key (third key) entered by the user are valids.
 ```Javascript
 kcy.checkKey({
 	k: 'userKey'
-}, onError, onSuccess);
+}, callback);
 ```
-You can manage the error or success with the callbacks. If all went well you receive an object like this: ```{ok: 1}```
+The callback follow the nodeJS convention reserving the first parameter of the callback for an optional error object. If all went well you receive an object like this as second parameter: ```{ok: 1}```
 In the other case, if it's not correct: ```{ok: 0}```
 
 ## getUserInfo
 Return user details and a list of his kcys.
 ```Javascript
-kcy.getUserInfo(onError, onSuccess);	
-kcy.getUserInfo({u: 'jorgecasar'}, onError, onSuccess);
+kcy.getUserInfo(callback);	
+kcy.getUserInfo({u: 'jorgecasar'}, callback);
 ```
-If the user does't exist you get an error 404. In the other case you get an object with the user info:
+If the user does't exist you get an error 404. In the other case you get an object with the user info as second parameter:
 ```JSON
 {
 	"username": "jorgecasar",
@@ -136,10 +139,10 @@ If the user does't exist you get an error 404. In the other case you get an obje
 ## getNuts
 Return an array with all user's nuts
 ```Javascript
-kcy.getNuts(onError, onSuccess);	
-kcy.getNuts({u: 'jorgecasar'}, onError, onSuccess);
+kcy.getNuts(callback);	
+kcy.getNuts({u: 'jorgecasar'}, callback);
 ```
-If all was right you get an array like this:
+If all was right you get an array like this as second parameter:
 ```JSON
 [{
 	"id": "140",
@@ -159,14 +162,14 @@ Return detailed information and URLs of the nut (achievement) of the user.
 ```Javascript
 kcy.getNut({
 	n: '140'
-}, onError, onSuccess);
+}, callback);
 
 kcy.getNut({
 	u: 'jorgecasar',
 	n: '140'
-}, onError, onSuccess);
+}, callback);
 ```
-If all was right you get an object like this:
+If all was right you get an object like this as second parameter:
 ```JSON
 {
 	"id": "140",
@@ -188,10 +191,10 @@ If all was right you get an object like this:
 ## getNetworks
 This method return an array with all user's networks
 ```Javascript
-kcy.getNetworks(onError, onSuccess);
-kcy.getNetworks({ u: 'jorgecasar' }, onError, onSuccess);
+kcy.getNetworks(callback);
+kcy.getNetworks({ u: 'jorgecasar' }, callback);
 ```
-If all was right you get an array like this:
+If all was right you get an array like this as second parameter:
 ```JSON
 [{
 	"connectid": "connectID",
@@ -206,9 +209,9 @@ If all was right you get an array like this:
 ## getFacebookPages
 Return an array with all Facebook Pages that the user is admin.
 ```Javascript
-kcy.getFacebookPages(onError, onSuccess);
+kcy.getFacebookPages(callback);
 ```
-If all was right you get an array like this:
+If all was right you get an array like this as second parameter:
 ```JSON
 [{
 	"access_token": "ACCESS_TOKEN",
@@ -221,10 +224,10 @@ If all was right you get an array like this:
 ## getDomains
 Returns the list of user's domains ranking ordered by the user within the domain.
 ```Javascript
-kcy.getDomains(onError, onSuccess);
-kcy.getDomains({u:'jorgecasar'}, onError, onSuccess);
+kcy.getDomains(callback);
+kcy.getDomains({u:'jorgecasar'}, callback);
 ```
-If all was right you get an array like this:
+If all was right you get an array like this as second parameter:
 ```JSON
 [{
 	"clicks": "246",
@@ -238,10 +241,10 @@ If all was right you get an array like this:
 ## getKcys
 Allows you to view, search and explore all kcys in Karmacracy.com.
 ```Javascript
-kcy.getKcys(onError, onSuccess);
-kcy.getKcys({u:'jorgecasar'}, onError, onSuccess);
+kcy.getKcys(callback);
+kcy.getKcys({u:'jorgecasar'}, callback);
 ```
-If all was right you get an array like this:
+If all was right you get an array like this as second parameter:
 ```JSON
 [{
 	"id": "qt36",
@@ -263,9 +266,9 @@ If all was right you get an array like this:
 ## getKcy
 Get a kcy detailed information, statistics and human trafficking that have shared.
 ```Javascript
-kcy.getKcys({kcy:'qt36'}, onError, onSuccess);
+kcy.getKcys({kcy:'qt36'}, callback);
 ```
-If all was right you get an object like this:
+If all was right you get an object like this as second parameter:
 ```JSON
 {
 	"shorturl": "qt36",
@@ -282,14 +285,14 @@ If all was right you get an object like this:
 ## getRank
 View and explore the global and instantaneous kcyrank.
 ```Javascript
-kcy.getRank(onError, onSuccess);
+kcy.getRank(callback);
 // Get the instantaneous rank from position 40th.
 kcy.getRank({
 	now:1,
 	from:40
-}, onError, onSuccess);
+}, callback);
 ```
-If all was right you get an array like this:
+If all was right you get an array like this as second parameter:
 ```JSON
 [{
 	"username": "elandroidelibre",
@@ -304,9 +307,9 @@ If all was right you get an array like this:
 ## getStatsEvolution
 Returns the statistics of the evolution of a user in the last 30 days.
 ```Javascript
-kcy.getStatsEvolution(onError, onSuccess);
+kcy.getStatsEvolution(callback);
 ```
-If all was right you get an object like this:
+If all was right you get an object like this as second parameter:
 ```JSON
 {
 
@@ -327,9 +330,9 @@ If all was right you get an object like this:
 ## getStatsRelevance
 Returns the statistics of the relevance of a user in the last 30 days (default), 7 days or 24 hours.
 ```Javascript
-kcy.getStatsRelevance(onError, onSuccess);
+kcy.getStatsRelevance(callback);
 ```
-If all was right you get an object like this:
+If all was right you get an object like this as second parameter:
 ```JSON
 {
 	"hours": {…},
@@ -344,9 +347,9 @@ If all was right you get an object like this:
 ## shortLink
 You can short a link using kcy.me, the Karmacracy.com shortener.
 ```Javascript
-kcy.shortLink({url: 'http://karmacracy.com'}, onError, onSuccess);
+kcy.shortLink({url: 'http://karmacracy.com'}, callback);
 ```
-If all was right you get an object like this:
+If all was right you get an object like this as second parameter:
 ```JSON
 {
 	"long_url": "http://karmacracy.com",
@@ -366,9 +369,9 @@ kcy.shareKcy({
 	// Network identifier, composed as follows:
 	// RR_IDCONNECT, being 'RR' property 'type' network, and being IDCONNECT property 'connectid'.
 	where: 'RR_IDCONNECT'
-}, onError, onSuccess);
+}, callback);
 ```
-If all was right you get an object like this:
+If all was right you get an object like this as second parameter:
 ```JSON
 {"result": "0"} 
 ```
@@ -379,10 +382,10 @@ Gets the list of the firewords on the Karmacracy portal:
 kcy.getFirewords({ 
 	num: '30' //number of firewords to get
 },
- onError, onSuccess);
+ callback);
 ```
 
-If all was right you get an object like this:
+If all was right you get an object like this as second parameter:
 ```JSON
 "word": [
     [
