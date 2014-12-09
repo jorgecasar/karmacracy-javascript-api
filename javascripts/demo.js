@@ -46,8 +46,17 @@ var app = (function(k){
 				var params = _getParams(this);
 				apply_args = [
 					params,
-					function(data){ that.onError(form, data); },
-					function(data){ that.onSuccess(form, data); }
+					function(error, data)
+					{
+						if( error )
+						{
+							that.onError(form, data);
+						}
+						else
+						{
+							that.onSuccess(form, data);
+						}
+					}
 				];
 				if( !params) apply_args.shift();
 				
