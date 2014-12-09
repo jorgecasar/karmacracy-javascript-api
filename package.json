@@ -31,5 +31,8 @@
     "grunt-mocha-test": "^0.12.4",
     "matchdep": "^0.3.0",
     "mocha": "^2.0.1"
+  },
+   "engines": {
+    "node": ">=0.10.0"
   }
 }
