@@ -17,18 +17,21 @@
 (function (root, factory)
 {
 	'use strict';
-	if (typeof define === 'function' && define.amd)
-	{
-		// AMD. Register as an anonymous module.
-		define([], factory);
-	} else {
-		// Browser globals
-		root.Karmacracy = factory();
-	}
-}(this, function ()
+	if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define([], factory);
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        module.exports = factory(require("xmlhttprequest").XMLHttpRequest);
+    } else {
+        // Browser globals (root is window)
+        root.Karmacracy = factory();
+    }
+}(this, function (XMLHttpRequest)
 {
 	'use strict';
-
 	function Karmacracy(appkey, lang)
 	{
 		var _appkey = appkey;
@@ -58,12 +61,11 @@
 			return pairs.join('&');
 		};
 
-		var _doRequest = function(method, params, error, success)
+		var _doRequest = function(method, params, callback)
 		{
 			if( typeof params === 'function')
 			{
-				success = error || null;
-				error = params;
+				callback = params;
 				params = {};
 			}
 
@@ -80,14 +82,16 @@
 					if ( xhr.status === 200 )
 					{
 						var response = _parseResponse(method, xhr);
-						if( response && typeof success === 'function')
+						if( response && typeof callback === 'function')
 						{
-							success(response);
+							callback(null, response);
 						}
 					}
 				}
 			};
-			xhr.onerror = error;
+			xhr.onerror = function(error){
+				callback(error, null);
+			};
 
 			xhr.send();
 		};
@@ -97,10 +101,18 @@
 		};
 		var _parseResponse = function(method, xhr)
 		{
-			var data = JSON.parse(xhr.responseText);
+			var data;
+			try
+			{
+				data = JSON.parse(xhr.responseText);
+			}
+			catch(error)
+			{
+				return xhr.onerror(error, null);
+			}
 			if( data.error )
 			{
-				return xhr.onerror(data);
+				return xhr.onerror(data, null);
 			}
 
 			if( data.data )
@@ -132,10 +144,10 @@
 				break;
 			case 'stats:evolution':
 				data = data.stats;
-				data.links_evolution = JSON.parse(data.links_evolution);
-				data.koi_evolution = JSON.parse(data.koi_evolution);
-				data.clicks_evolution = JSON.parse(data.clicks_evolution);
-				data.rank_evolution = JSON.parse(data.rank_evolution);
+				data.links_evolution = data.links_evolution ? JSON.parse(data.links_evolution) : {};
+				data.koi_evolution = data.koi_evolution ? JSON.parse(data.koi_evolution) : {};
+				data.clicks_evolution = data.clicks_evolution ? JSON.parse(data.clicks_evolution) : {};
+				data.rank_evolution = data.rank_evolution ? JSON.parse(data.rank_evolution) : {};
 				break;
 			case 'stats:relevance':
 				data = data.stats;
@@ -299,90 +311,90 @@
 			this.setUserKey(userKey);
 		};
 
-		this.getKey = function(params, error, success)
+		this.getKey = function(params, callback)
 		{
 			var method = 'key';
 			params.regenerate = 0;
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getNewKey = function(params, error, success)
+		this.getNewKey = function(params, callback)
 		{
 			var method = 'key';
 			params.regenerate = 1;
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.checkKey = function(params, error, success)
+		this.checkKey = function(params, callback)
 		{
 			var method = 'key:check';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getUserInfo = function(params, error, success)
+		this.getUserInfo = function(params, callback)
 		{
 			var method = 'user';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getNuts = function(params, error, success)
+		this.getNuts = function(params, callback)
 		{
 			var method = 'awards';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getNut = function(params, error, success)
+		this.getNut = function(params, callback)
 		{
 			var method = 'awards:nut';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getNetworks = function(error, success)
+		this.getNetworks = function(callback)
 		{
 			var method = 'networks';
-			_doRequest.call(this, method, error, success);
+			_doRequest.call(this, method, callback);
 		};
-		this.getFacebookPages = function(params, error, success)
+		this.getFacebookPages = function(params, callback)
 		{
 			var method = 'networks:fbpages';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getDomains = function(params, error, success)
+		this.getDomains = function(params, callback)
 		{
 			var method = 'domains';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getKcy = function(params, error, success)
+		this.getKcy = function(params, callback)
 		{
 			var method = 'kcy';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getKcys = function(params, error, success)
+		this.getKcys = function(params, callback)
 		{
 			var method = 'world';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getRank = function(params, error, success)
+		this.getRank = function(params, callback)
 		{
 			var method = 'rank';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getStatsEvolution = function(params, error, success)
+		this.getStatsEvolution = function(params, callback)
 		{
 			var method = 'stats:evolution';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getStatsRelevance = function(params, error, success)
+		this.getStatsRelevance = function(params, callback)
 		{
 			var method = 'stats:relevance';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.shortLink = function(params, error, success){
+		this.shortLink = function(params, callback){
 			var method = 'shortLink';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.shareKcy = function(params, error, success){
+		this.shareKcy = function(params, callback){
 			var method = 'share';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
-		this.getFirewords = function (params, error, success)
+		this.getFirewords = function (params, callback)
 		{
 			var method = 'firewords';
-			_doRequest.call(this, method, params, error, success);
+			_doRequest.call(this, method, params, callback);
 		};
 
 		this.setLang(lang);
