@@ -11,9 +11,6 @@
     "name" : "Jorge del Casar"
   },
   "main": "dist/karmacracy-javascript-api.min.js",
-  "scripts": {
-    "test": "test/spec.js"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jorgecasar/karmacracy-javascript-api.git"

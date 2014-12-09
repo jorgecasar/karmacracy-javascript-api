@@ -12,7 +12,7 @@
   },
   "main": "dist/karmacracy-javascript-api.min.js",
   "scripts": {
-    "test": "test/spec.js"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",

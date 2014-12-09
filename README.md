@@ -1,7 +1,9 @@
 Karmacracy API Javascript
 =========================
 
-[![Build Status](https://secure.travis-ci.org/jorgecasar/karmacracy-javascript-api.png?branch=master)](http://travis-ci.org/jorgecasar/karmacracy-javascript-api)
+[![Build Status](https://secure.travis-ci.org/jorgecasar/karmacracy-javascript-api.svg?branch=master)](http://travis-ci.org/jorgecasar/karmacracy-javascript-api)
+[![Dependency Status](https://david-dm.org/jorgecasar/karmacracy-javascript-api.svg?theme=shields.io)](https://david-dm.org/jorgecasar/karmacracy-javascript-api)
+[![devDependency Status](https://david-dm.org/jorgecasar/karmacracy-javascript-api/dev-status.svg?theme=shields.io)](https://david-dm.org/jorgecasar/karmacracy-javascript-api#info=devDependencies)
 
 A Javascript wrapper for Karmacracy API. You can check the [official documentation](http://karmacracy.com/sections/api/documentation/api-documentation-index.php)
 
