@@ -1,6 +1,6 @@
 Karmacracy API Javascript
 =========================
-[![Package Quality](http://npm.packagequality.com/badge/karmacracy-javascript-api.png)](http://packagequality.com/#?package=karmacracy-javascript-api)
+[![Package Quality](http://npm.packagequality.com/shield/karmacracy-javascript-api.png)](http://packagequality.com/#?package=karmacracy-javascript-api)
 [![Build Status](https://secure.travis-ci.org/jorgecasar/karmacracy-javascript-api.svg?branch=master)](http://travis-ci.org/jorgecasar/karmacracy-javascript-api)
 [![Dependency Status](https://david-dm.org/jorgecasar/karmacracy-javascript-api.svg?theme=shields.io)](https://david-dm.org/jorgecasar/karmacracy-javascript-api)
 [![devDependency Status](https://david-dm.org/jorgecasar/karmacracy-javascript-api/dev-status.svg?theme=shields.io)](https://david-dm.org/jorgecasar/karmacracy-javascript-api#info=devDependencies)
