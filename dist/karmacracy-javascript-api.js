@@ -1,6 +1,6 @@
-/*! karmacracy-javascript-api - v0.1.2 - 2014-12-09
+/*! karmacracy-javascript-api - v0.1.2 - 2015-06-03
 * http://jorgecasar.github.io/karmacracy-javascript-api/
-* Copyright (c) 2014 Jorge del Casar; Licensed  */
+* Copyright (c) 2015 Jorge del Casar; Licensed  */
 // Uses AMD or browser globals to create a module.
 
 // Grabbed from https://github.com/umdjs/umd/blob/master/amdWeb.js.
@@ -51,7 +51,7 @@
 				}
 				if (Object.prototype.toString.call(object[prop]) === '[object Object]')
 				{
-					pairs.push(object[prop].serialize());
+					pairs.push(_serializeObject(object[prop]));
 					continue;
 				}
 				if( object[prop] ){
